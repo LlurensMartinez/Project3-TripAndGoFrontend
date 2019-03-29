@@ -15,7 +15,10 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import AuthProvider from './providers/AuthProvider';
 import NoMatch from './pages/NoMatch';
-import './App.css';
+import './css/App.css';
+import './css/Login.css';
+import './css/Signup.css';
+import './css/Trips.css';
 
 
 class App extends Component {
