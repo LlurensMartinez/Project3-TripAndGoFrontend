@@ -9,8 +9,13 @@
 }
 
 .trips-margin-div-global{
-    margin-right: 3vh;
-    margin-left: 3vh;
+    margin-right: 3.5vh;
+    margin-left: 3.5vh;
+    margin-bottom: 19%;
+}
+
+.mytrips-margin-top-global {
+    margin-top: 3vh;
 }
 
 .trips-title{
@@ -46,8 +51,4 @@
     font-size: 2.1vh;
     margin-top: 1vh;
     color: #404040;
-}
-
-.trips-margin-down{
-    margin-top: 14vh
 }
