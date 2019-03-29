@@ -48,6 +48,9 @@ class TripDetail extends Component {
         {data.owner === this.props.user._id
           && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
         }
+        {data.owner !== this.props.user._id
+          && <><button onClick={this.handleDelete}>Unirse</button> </>
+        }
         <Navbar />
       </div>
     );

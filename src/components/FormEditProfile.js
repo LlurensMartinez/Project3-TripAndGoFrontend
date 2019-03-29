@@ -16,9 +16,10 @@ class FormEditProfile extends Component {
     const name = this.state.name;
     const username= this.state.username;
     const password = this.state.password;
+    const newPassword = this.state.newPassword;
     const phoneNumber = this.state.phoneNumber;
 
-    profileService.edit({ name, username, password, phoneNumber})
+    profileService.edit({ name, username, password, phoneNumber, newPassword})
       .then(() => {
         this.props.history.goBack();
       })
