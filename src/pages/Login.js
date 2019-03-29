@@ -28,10 +28,13 @@ class Login extends Component {
       <h1>Iniciar Sesión</h1>
       <form onSubmit={this.handleFormSubmit} className="login-form">
         <label>Dirección de correo electrónico:</label>
-        <input type="email" name="username" value={username} onChange={this.handleChange}/>
+        <input className="login-form-input" type="email" name="username" value={username} onChange={this.handleChange}/>
         <label>Contraseña:</label>
-        <input type="password" name="password" value={password} onChange={this.handleChange} />
-        <input type="submit" value="Login" />
+        <input  className="login-form-input"type="password" name="password" value={password} onChange={this.handleChange} />
+        <div className="login-input-submit-container">
+        <i id="login-submit" class="fas fa-sign-in-alt" type="submit"></i>
+        <input  className="login-input-submit" type="submit" value=""/>
+        </div>
       </form>
       </div>
     )

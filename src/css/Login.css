@@ -1,11 +1,14 @@
 input {
   outline: none;
-} 
+}
+
 
 .login-div-container h1{
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
   padding-bottom: 9vh;
+  color: #404040;
+  
 }
 .login-div-container{
   display:flex;
@@ -23,16 +26,49 @@ input {
   
 }
 
-.login-form input{
+.login-form-input{
   font-size: 1.3em;
-  border-bottom:1px solid black; 
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  margin: 3vh 0px;
-  height: 3vh;
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 1vh 0 5vh 0;
+  height: 4vh;
+  font-size: 1.1em;
+  color: #404040;
+}
+
+.login-form-input:hover{
+  border: none;
+  border-bottom: 1px solid rgb(230, 171, 69);
+  color:rgb(230, 171, 69);
+  
 }
 
 .login-form label{
-  /* border-bottom: 2px solid black; */
+  color: #404040;
+  font-size: 1.2em;
+}
+
+.login-form label:first-child:hover {
+  color: rgb(230, 171, 69);
+}
+
+.login-input-submit{
+border:none;
+background-color: transparent;
+position: absolute;
+padding: 1vh 2vh;
+left: 87vw;
+}
+
+.login-input-submit-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#login-submit{
+  font-size: 2em;
+  text-align: end;
+  margin: 0;
+  padding: 0;
 }
