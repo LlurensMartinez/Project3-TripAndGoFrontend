@@ -85,11 +85,11 @@ class FormCreateTrip extends Component {
             <div className="formcreatetrip-margin-top">
               <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
             </div>
-            <div className="formcreatetrip-margin-top">
-              <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
-            </div>
           </form>
         </div>
+            <footer className="formcreatetrip-footer formcreatetrip-text-align-center">
+              <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
+            </footer>
       </>
     );
   }

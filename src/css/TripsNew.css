@@ -50,6 +50,16 @@
 .formcreatetrip-button{
     border-radius: 5vh;
     background: none;
+    padding:10px;
+    width: 15vh;
     border: none;
-    padding:16px;
+    box-shadow: 0 0 7px #ddd;
+    color: #404040;
+}
+
+.formcreatetrip-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8vh;
 }
