@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 
 class TripCard extends Component {
     render() {
-    const {data} = this.props;
+        const { data } = this.props;
         return (
-            <div>
-                <Link to={`/trips/${data._id}`}>
-                    <img width="60px" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image"/>
-                </Link>
-                <p>{data.date}</p>
-                <p>{data.dateInit}</p>
-                <h1>{data.title}</h1>
-                <p>{data.itinerary}</p>
-                <p>{data.ageRange}</p>
+            <div className="tripscard-margin-top">
+                <div>
+                    <Link to={`/trips/${data._id}`}>
+                        <img className="tripcard-image" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image" />
+                    </Link>
+                </div>
+                <h1 className="font-family-montserrat tripcard-title">{data.title}</h1>
+                <p className="tripcard-style-p">Itinerario: {data.itinerary}</p>
+                <p className="tripcard-style-p">Edad: {data.ageRange} años</p>
             </div>
         );
     }

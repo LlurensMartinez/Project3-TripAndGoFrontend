@@ -35,14 +35,15 @@ class Trips extends Component {
           <div className="trips-height-filter">
             <p>Filtros</p>
           </div>
-          <div>
-            <p className="trips-title">Viajes más populares</p>
+          <div className="trips-div-title-margin">
+            <p className="trips-title font-family-montserrat">Viajes más populares</p>
           </div>
           {data.map(singleTrip => (
             <TripCard
               data={singleTrip}
             />))}
         </div>
+        <div className="trips-margin-down"></div>
         <Navbar />
       </>
     )
@@ -50,4 +51,3 @@ class Trips extends Component {
 }
 
 export default withAuth(Trips);
-{/* <h1>Welcome {user.name}</h1> */ }
