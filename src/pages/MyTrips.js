@@ -9,13 +9,13 @@ class MyTrips extends Component {
     data: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getTripList();
   }
 
 
 
-  getTripList = async() => {
+  getTripList = async () => {
     await tripService.getMyTrips()
       .then(data => {
         this.setState({
@@ -23,22 +23,23 @@ class MyTrips extends Component {
         })
       })
   }
-  
+
   render() {
     const { data } = this.state;
     return (
-      <div>
-        <h1>Mis viajes</h1>
-        {data.map(singleTrip => (
-        <TripCard
-            data={singleTrip}
-        />))}
-        
+      <>
+        <div className="trips-margin-div-global mytrips-margin-top-global">
+          <h1 className="trips-title font-family-montserrat">Mis viajes</h1>
+          {data.map(singleTrip => (
+            <TripCard
+              data={singleTrip}
+            />))}
+        </div>
         <Navbar />
-      </div>
+      </>
     )
   }
 }
 
 export default withAuth(MyTrips);
-{/* <h1>Welcome {user.name}</h1> */}
+{/* <h1>Welcome {user.name}</h1> */ }

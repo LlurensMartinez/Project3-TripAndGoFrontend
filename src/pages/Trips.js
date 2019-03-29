@@ -43,7 +43,6 @@ class Trips extends Component {
               data={singleTrip}
             />))}
         </div>
-        <div className="trips-margin-down"></div>
         <Navbar />
       </>
     )
