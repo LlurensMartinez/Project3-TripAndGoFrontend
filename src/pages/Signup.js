@@ -38,24 +38,27 @@ class Signup extends Component {
   render() {
     const { username, password, name, phoneNumber } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
+      <div className="signup-div-container">
+        <h1>Registro</h1>
+        <form onSubmit={this.handleFormSubmit} className="signup-form">
           <label>Nombre y apellidos</label>
-          <input type="text" name="name" value={name} onChange={this.handleChange} className="borderTest"/>
-          <label>Dirección de correo electrónico:</label>
-          <input type="email" name="username" value={username} onChange={this.handleChange} className="borderTest"/>
-          <label>Contraseña:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} className="borderTest"/>
+          <input className="signup-form-input" type="text" name="name" value={name} onChange={this.handleChange} />
+          <label>Dirección de correo electrónico</label>
+          <input  className="signup-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
+          <label>Contraseña</label>
+          <input  className="signup-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
           {/* <label>Repita la contraseña:</label>
           <input type="password" name="confirmPassword" value={password} onChange={this.handleChange} /> */}
           <label>Número de teléfono</label>
-          <input type="number" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} className="borderTest"/>
-          <input type="submit" value="Signup" />
-        </form>
-
-        <p>Already have account? 
+          <input className="signup-form-input" type="number" name="phoneNumber" value={phoneNumber} onChange={this.handleChange}/>
+           <p id="signup-p">Already have account? 
           <Link to={"/login"}> Login</Link>
-        </p>
+          </p>
+          <div className="signup-input-submit-container">
+          <i id="login-submit" class="fas fa-sign-in-alt"></i>
+          <input className="login-input-submit" type="submit" value="" />
+          </div>
+        </form>
 
       </div>
     )

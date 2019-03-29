@@ -1,0 +1,73 @@
+input {
+  outline: none;
+}
+
+
+.signup-div-container h1{
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: 9vh;
+  color: #404040;
+  
+}
+.signup-div-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 2px solid black; */
+  width: 100vw;
+  height: 100vh;
+}
+
+.signup-form{
+  display:flex;
+  flex-direction: column;
+  margin: 3vh;
+  
+}
+
+.signup-form-input{
+  font-size: 1.3em;
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 1vh 0 5vh 0;
+  height: 4vh;
+  font-size: 1.1em;
+  color: rgb(230, 171, 69);
+}
+
+.signup-form-input:hover{
+  border: none;
+  border-bottom: 1px solid rgb(230, 171, 69);
+  
+}
+
+.signup-form label{
+  color: #404040;
+  font-size: 1.2em;
+}
+
+.signup-form label:first-child:hover {
+  color: rgb(230, 171, 69);
+}
+
+.signup-input-submit{
+border:none;
+background-color: transparent;
+}
+
+.signup-input-submit-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#signup-p{
+text-align: center;
+margin-bottom: 6vh;
+}
+
+#signup-submit{
+  font-size: 2em;
+  text-align: end;
+}
