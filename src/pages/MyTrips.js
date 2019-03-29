@@ -41,4 +41,3 @@ class MyTrips extends Component {
 }
 
 export default withAuth(MyTrips);
-{/* <h1>Welcome {user.name}</h1> */}
