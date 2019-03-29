@@ -19,6 +19,7 @@ import './css/App.css';
 import './css/Login.css';
 import './css/Signup.css';
 import './css/Trips.css';
+import './css/TripsNew.css';
 
 
 class App extends Component {

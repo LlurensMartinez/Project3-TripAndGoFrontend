@@ -1,0 +1,55 @@
+.formcreatetrip-margin-top{
+    margin-top: 3vh;
+}
+
+.formcreatetrip-inputstyles{
+    border-color: white;
+    color:white;
+}
+
+.borderTest {
+    border:none;
+    border-bottom: 1px solid #999;
+    border-radius: 0;
+    width: 100%;
+  }
+
+.color-grey{
+    color: #404040;
+}
+
+.font-family-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.formcreatetrip-age-range{
+    border:none;
+    background: none;
+    padding: 1vh;
+}
+
+.formcreatetrip-text-area{
+    width: 100%;
+}
+
+.formcreatetrip-date{
+    width: 20vh;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.formcreatetrip-flex{
+    display: flex;
+    justify-content: space-around;
+}
+
+.formcreatetrip-text-align-center{
+    text-align: center;
+}
+
+.formcreatetrip-button{
+    border-radius: 5vh;
+    background: none;
+    border: none;
+    padding:16px;
+}

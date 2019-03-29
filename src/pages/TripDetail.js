@@ -38,7 +38,7 @@ class TripDetail extends Component {
     //  if(data.owner == this.props.user._id ){
     return (
       <div>
-        <h1>TripDetail</h1>
+        <h1>Trip Detail</h1>
         <img width="60px" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image" />
         <p>{data.date}</p>
         <p>{data.dateInit}</p>
