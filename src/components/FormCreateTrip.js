@@ -8,10 +8,10 @@ class FormCreateTrip extends Component {
     description: "",
     itinerary: "",
     date: "",
-    dateInit:"",
+    dateInit: "",
     ageRange: "18-25",
     numberPersons: "",
-  } 
+  }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -36,37 +36,63 @@ class FormCreateTrip extends Component {
   }
 
   render() {
-    const { title, description, itinerary, date,dateInit, ageRange, numberPersons } = this.state;
+    const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = this.state;
     return (
       <>
-        <h1>¡Crea tu propio viaje!</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Introduce el título de tu viaje</label>
-          <input type="text" name="title" value={title} onChange={this.handleChange} className="borderTest" />
-          <label>Descripción:</label>
-          <textarea name="description" value={description} onChange={this.handleChange}>
-          </textarea>
-          <label>Itinerario:</label>
-          <input type="text" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest" />
-          <label>Fecha Inicio:</label>
-          <input type="date" name="dateInit" value={dateInit} onChange={this.handleChange} className="borderTest" />
-          <label>Fecha Fin:</label>
-          <input type="date" name="date" value={date} onChange={this.handleChange} className="borderTest" />
-          <label>Rango de edad:</label>
-          <select value={ageRange} name="ageRange" onChange={this.handleChange}>
-            <option value="18-25" >18-25</option>
-            <option value="25-30">25-30</option>
-            <option value="30-40">30-40</option>
-            <option value="40-50">40-50</option>
-            <option value="+50">+50</option>
-          </select>
-          <label>Número máximo de personas:</label>
-          <input type="number" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
-          <input type="submit" value="Crear viaje" />
-        </form>
+        <div className="trips-margin-div-global">
+          <div>
+            <h1 className="trips-title font-family-montserrat">¡Crea tu propio viaje!</h1>
+          </div>
+          <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
+            <div >
+              <input className="font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} className="borderTest" />
+            </div>
+            <div className="formcreatetrip-margin-top">
+              <textarea className="font-family-roboto formcreatetrip-text-area" name="description" placeholder="Descripción del viaje" value={description} onChange={this.handleChange}>
+              </textarea>
+            </div>
+            <div className="formcreatetrip-margin-top">
+              <input type="text" placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest" />
+            </div>
+            <div className="formcreatetrip-margin-top formcreatetrip-flex">
+              <div>
+                <div>
+                  <label className="color-grey">Fecha Inicio:</label>
+                </div>
+                <div>
+                  <input type="date" name="dateInit" value={dateInit} onChange={this.handleChange} className="formcreatetrip-date" />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label className="color-grey">Fecha Fin:</label>
+                </div>
+                <div>
+                  <input type="date" name="date" value={date} onChange={this.handleChange} className="formcreatetrip-date" />
+                </div>
+              </div>
+            </div>
+            <div className="formcreatetrip-margin-top">
+              <label className="color-grey">Rango de edad:</label>
+              <select className="formcreatetrip-age-range" value={ageRange} name="ageRange" onChange={this.handleChange}>
+                <option value="18-25" >18-25</option>
+                <option value="25-30">25-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="+50">+50</option>
+              </select>
+            </div>
+            <div className="formcreatetrip-margin-top">
+              <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
+            </div>
+            <div className="formcreatetrip-margin-top">
+              <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
+            </div>
+          </form>
+        </div>
       </>
     );
   }
 }
 
-export default  withRouter(FormCreateTrip);
+export default withRouter(FormCreateTrip);
