@@ -1,0 +1,19 @@
+.trips-height-tool-bar {
+    height: 7vh;
+    border: 1px solid green;
+}
+
+.trips-height-filter {
+    height: 6vh;
+    border: 1px solid rgb(238, 47, 47);
+}
+
+.trips-margin-div-global{
+    margin-right: 3vh;
+    margin-left: 3vh;
+}
+
+.trips-title{
+    font-family: 'Montserrat', sans-serif;
+
+}
