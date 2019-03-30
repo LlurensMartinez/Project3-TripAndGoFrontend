@@ -15,6 +15,7 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import AuthProvider from './providers/AuthProvider';
 import NoMatch from './pages/NoMatch';
+
 import './css/App.css';
 import './css/Login.css';
 import './css/Signup.css';
