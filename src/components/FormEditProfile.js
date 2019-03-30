@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import profileService from '../lib/profile-service';
-import FileUpload from '../FileUpload';
+import FileUpload from './FileUpload';
 
 
 
@@ -11,10 +11,7 @@ class FormEditProfile extends Component {
     password: "",
     newPassword: "",
     phoneNumber: this.props.profile.phoneNumber,
-    avatar: '',
-    isUploading: false,
-    progress: 0,
-    avatarURL: ''
+    imageURL: ""
   }
  
 
@@ -25,8 +22,9 @@ class FormEditProfile extends Component {
     const password = this.state.password;
     const newPassword = this.state.newPassword;
     const phoneNumber = this.state.phoneNumber;
+    const imageURL = this.state.imageURL;
 
-    profileService.edit({ name, username, password, phoneNumber, newPassword})
+    profileService.edit({ name, username, password, phoneNumber, newPassword, imageURL})
       .then(() => {
         this.props.history.goBack();
       })
@@ -38,6 +36,11 @@ class FormEditProfile extends Component {
     this.setState({ [name]: value });
   }
 
+  getImageURL = (image) => {
+    this.setState ({
+      imageURL:image
+    })
+  }
   // handleChangeUsername = (event) => this.setState({username: event.target.value});
   // handleUploadStart = () => this.setState({isUploading: true, progress: 0});
   // handleProgress = (progress) => this.setState({progress});
@@ -52,7 +55,7 @@ class FormEditProfile extends Component {
 
   render() {
     const { name, username, password, newPassword, phoneNumber } = this.state;
-    
+    console.log(this.state.imageURL)
     return (
       <>
         <h1>Editar Perfil</h1>
@@ -72,7 +75,7 @@ class FormEditProfile extends Component {
           <input type="text" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} className="borderTest" />
           <input type="submit" value="Save" />
           </form>
-          <FileUpload />
+          <FileUpload getImageURL={this.getImageURL}/>
       </>
     );
   }

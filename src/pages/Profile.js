@@ -18,7 +18,7 @@ class Profile extends Component {
       })
   }
   render() {
-    const {name, username, phoneNumber} = this.state.data;
+    const {name, username, phoneNumber,imageURL} = this.state.data;
     return (
       <>
       <div className="nav-top">
@@ -29,7 +29,7 @@ class Profile extends Component {
       </div>
       </div>
         <h1>Profile</h1>
-        <img src="/images/img-default-profile.png" alt="" width="200px"/ >
+        <img src={imageURL} alt="" width="200px"/ >
         <h1>{name}</h1>
         <h3>Dirección de correo electrónico</h3>
         <h3>{username}</h3>
