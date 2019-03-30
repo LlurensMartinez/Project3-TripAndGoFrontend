@@ -31,6 +31,17 @@ class TripDetail extends Component {
       })
   }
 
+  handleJoin= (e) => {
+    e.preventDefault();
+    tripService.joinTrip(this.props.match.params.id)
+      .then(message => {
+        this.setState({
+          message,
+        })
+        this.props.history.goBack();
+      })
+  }
+
   render() {
     const { data } = this.state;
 
@@ -49,7 +60,7 @@ class TripDetail extends Component {
           && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
         }
         {data.owner !== this.props.user._id
-          && <><button onClick={this.handleDelete}>Unirse</button> </>
+          && <><button onClick={this.handleJoin}>Unirse</button> </>
         }
         <Navbar />
       </div>

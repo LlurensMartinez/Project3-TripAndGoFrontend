@@ -44,7 +44,13 @@ class TripService {
     return this.trip.delete(`/trip/${id}`)
       .then(({ data }) => data);
   }
+
+  joinTrip(id) {
+    return this.trip.put(`/trip/${id}/join`)
+      .then(({ data }) => data);
+  }
 }
+
 
 const tripService = new TripService();
 
