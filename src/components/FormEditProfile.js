@@ -45,9 +45,9 @@ class FormEditProfile extends Component {
           <textarea name="username" value={username} onChange={this.handleChange}>
           </textarea>
           <label>Contraseña actual</label>
-          <input type="text" name="password" value={password} onChange={this.handleChange} className="borderTest" />
+          <input type="password" name="password" value={password} onChange={this.handleChange} className="borderTest" />
           <label>Nueva contraseña</label>
-          <input type="text" name="newPassword" value={newPassword} onChange={this.handleChange} className="borderTest" />
+          <input type="password" name="newPassword" value={newPassword} onChange={this.handleChange} className="borderTest" />
           {/* <label>Repita la nueva contraseña</label>
           <input type="text" name="newPassword" value={newPassword} onChange={this.handleChange} className="borderTest" /> */}
           <label>Número de teléfono</label>

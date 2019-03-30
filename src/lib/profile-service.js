@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-console.log(process.env.REACT_APP_BACKEND_URL)
-
 class ProfileService {
   constructor() {
     this.profile = axios.create({
@@ -11,7 +9,6 @@ class ProfileService {
   }
   // Llama a la Api para editar los datos del usuario
   edit(data) {
-    console.log()
     const { name, username, password, newPassword, phoneNumber } = data;
     return this.profile.put(`/profile/edit`, { name, username, password, newPassword, phoneNumber })
       .then(({ data }) => data);

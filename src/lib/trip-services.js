@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-console.log(process.env.REACT_APP_BACKEND_URL)
 
 class TripService {
   constructor() {
@@ -17,7 +16,6 @@ class TripService {
   }
 
   edit(id,data) {
-    console.log(id,data)
     const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = data;
     return this.trip.put(`/trip/${id}/edit`, { title, description, itinerary, date, dateInit, ageRange, numberPersons })
       .then(({ data }) => data);
@@ -35,7 +33,6 @@ class TripService {
 
   // Llama a la Api para recoger un viaje especifico
   getOne(id) {
-    console.log(id)
     return this.trip.get(`/trip/${id}`)
       .then(({ data }) => data);
   }
@@ -47,6 +44,11 @@ class TripService {
 
   joinTrip(id) {
     return this.trip.put(`/trip/${id}/join`)
+      .then(({ data }) => data);
+  }
+
+  leaveTrip(id) {
+    return this.trip.put(`/trip/${id}/leave`)
       .then(({ data }) => data);
   }
 }
