@@ -6,16 +6,18 @@ import TripCard from '../components/TripCard'
 
 class MyTrips extends Component {
   state = {
-    data: []
+    data: [],
+    dataJoin: [],
   }
 
   componentDidMount() {
-    this.getTripList();
+    this.getTripCreateList();
+    this.getTripJoinList();
   }
 
 
 
-  getTripList = async () => {
+  getTripCreateList = async () => {
     await tripService.getMyTrips()
       .then(data => {
         this.setState({
@@ -24,13 +26,27 @@ class MyTrips extends Component {
       })
   }
 
+  getTripJoinList = async () => {
+    await tripService.getMyTripsJoin()
+      .then(data => {
+        this.setState({
+          dataJoin: data
+        })
+      })
+  }
+
   render() {
-    const { data } = this.state;
+    const { data, dataJoin } = this.state;
     return (
       <>
         <div className="trips-margin-div-global mytrips-margin-top-global">
           <h1 className="trips-title font-family-montserrat">Mis viajes</h1>
           {data.map(singleTrip => (
+            <TripCard
+              data={singleTrip}
+            />))}
+        <h1 className="trips-title font-family-montserrat">Viajes confirmados</h1>
+        {dataJoin.map(singleTrip => (
             <TripCard
               data={singleTrip}
             />))}

@@ -22,7 +22,6 @@ class FormCreateTrip extends Component {
     const dateInit = this.state.dateInit;
     const ageRange = this.state.ageRange;
     const numberPersons = this.state.numberPersons;
-
     tripService.create({ title, description, itinerary, date, dateInit, ageRange, numberPersons })
       .then((data) => {
         this.props.history.push(`/trips/${data._id}`);
@@ -85,11 +84,11 @@ class FormCreateTrip extends Component {
             <div className="formcreatetrip-margin-top">
               <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
             </div>
-          </form>
-        </div>
             <footer className="formcreatetrip-footer formcreatetrip-text-align-center">
               <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
             </footer>
+          </form>
+        </div>
       </>
     );
   }

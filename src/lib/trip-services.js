@@ -51,6 +51,11 @@ class TripService {
     return this.trip.put(`/trip/${id}/leave`)
       .then(({ data }) => data);
   }
+
+  getMyTripsJoin(){
+    return this.trip.get('/trip/mytripsjoin')
+      .then(({ data }) => data);
+  }
 }
 
 
