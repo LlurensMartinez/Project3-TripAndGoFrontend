@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { withAuth } from '../providers/AuthProvider';
 import Navbar from '../components/Navbar';
 import tripService from '../lib/trip-services';
-import TripCard from '../components/TripCard'
+import TripCard from '../components/TripCard';
+import CoursesSearch from '../components/CoursesSearch';
 
 
 class Trips extends Component {
   state = {
-    data: []
+    data: [],
   }
 
   componentDidMount() {
@@ -20,7 +21,17 @@ class Trips extends Component {
         this.setState({
           data: data
         })
+        console.log(data)
       })
+  }
+
+  filterCompare = (value) => {
+    const { data } = this.state;
+    this.setState({
+      data: [...data].filter(data =>{ 
+        console.log(data.title)
+        data.title.toLowerCase().includes(value.toLowerCase)})
+    })
   }
 
   render() {
@@ -30,7 +41,7 @@ class Trips extends Component {
       <>
         <div className="trips-margin-div-global">
           <div className="trips-height-tool-bar">
-            <p>Barra de búsqueda</p>
+            <CoursesSearch onSearch={this.filterCompare} />
           </div>
           <div className="trips-height-filter">
             <p>Filtros</p>

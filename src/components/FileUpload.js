@@ -13,12 +13,21 @@ class FileUpload extends Component {
     }
     this.handleUpload = this.handleUpload.bind(this);
   }
+  
 
   handleUpload (event) {
     const file = event.target.files[0];
     const storageRef = firebase.storage().ref(`/fotos/${file.name}`);
     const task = storageRef.put(file);
-    console.log(storageRef)
+    console.log(task.snapshot)
+    
+
+    // let hola = task.snapshot.downloadURL.getUploadSessionUri().toString();
+    // console.log(hola)
+
+    // task.ref.getDownloadURL().then(function(downloadURL) {
+    //   console.log("File available at", downloadURL);
+    // });
 
     task.on('state_changed', snapshot => {
       let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
