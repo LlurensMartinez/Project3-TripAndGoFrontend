@@ -48,6 +48,13 @@ class FileUpload extends Component {
     });
 
   }
+
+  handleUploadSuccess = (filename) => {
+    this.setState({avatar: filename, progress: 100, isUploading: false});
+    const hola = firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({fileName: url}));
+    console.log(hola)
+    };
+
   render() {
     return (
       <div>
