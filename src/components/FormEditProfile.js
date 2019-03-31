@@ -27,6 +27,8 @@ class FormEditProfile extends Component {
     const newPassword = this.state.newPassword;
     const phoneNumber = this.state.phoneNumber;
     const imageURL = this.state.imageURL;
+    
+   
 
     profileService.edit({ name, username, password, phoneNumber, newPassword, imageURL})
       .then(() => {

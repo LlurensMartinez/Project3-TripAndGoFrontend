@@ -25,9 +25,9 @@ class TripDetail extends Component {
   }
 
   checkUserIsJoin() {
+    console.log(this.state.data)
     const { participants } = this.state.data;
     let idUsersJoin = participants.map(x => {
-      console.log(this.props.user._id)
       if(this.props.user._id === x){
         this.setState({
           isJoin: true,
@@ -63,6 +63,8 @@ class TripDetail extends Component {
       })
   }
 
+
+
   handleLeave = (e) => {
     e.preventDefault();
     tripService.leaveTrip(this.props.match.params.id)
@@ -72,6 +74,16 @@ class TripDetail extends Component {
         })
         this.props.history.push(`/trips`);
       })
+  }
+
+  renderList(){
+    const { participants } = this.state.data;
+    const { name } = this.props.user
+    console.log(participants)
+
+    return participants.map((participant, index) => {
+      return <h1>{participant}</h1>
+    })
   }
 
   render() {
@@ -89,12 +101,15 @@ class TripDetail extends Component {
             <h1>{data.title}</h1>
             <p>{data.itinerary}</p>
             <p>{data.ageRange}</p>
+            <h2>Viajeros</h2>
+            {this.renderList()}
             {data.owner === this.props.user._id
               && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
             }
             {(data.owner !== this.props.user._id && !isJoin)
               ? <><button onClick={this.handleJoin}>Unirse</button> </> : <><button onClick={this.handleLeave}>Salir</button> </>
             }
+            
             <Navbar />
           </div>
         );
