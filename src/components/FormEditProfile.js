@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import profileService from '../lib/profile-service';
-import FileUpload from './FileUpload';
-
-
+// import FileUpload from './FileUpload';
+import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
 
 class FormEditProfile extends Component {
   state = {
@@ -11,7 +11,11 @@ class FormEditProfile extends Component {
     password: "",
     newPassword: "",
     phoneNumber: this.props.profile.phoneNumber,
-    imageURL: ""
+    imageURL: '',
+    avatar: '',
+    isUploading: false,
+    progress: 0,
+    // avatarURL: ''
   }
  
 
@@ -36,26 +40,26 @@ class FormEditProfile extends Component {
     this.setState({ [name]: value });
   }
 
-  getImageURL = (image) => {
-    this.setState ({
-      imageURL:image
-    })
-  }
-  // handleChangeUsername = (event) => this.setState({username: event.target.value});
-  // handleUploadStart = () => this.setState({isUploading: true, progress: 0});
-  // handleProgress = (progress) => this.setState({progress});
-  // handleUploadError = (error) => {
-  // this.setState({isUploading: false});
-  // console.error(error);
+  // getImageURL = (image) => {
+  //   this.setState ({
+  //     imageURL:image
+  //   })
   // }
-  // handleUploadSuccess = (filename) => {
-  // this.setState({avatar: filename, progress: 100, isUploading: false});
-  // firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({avatarURL: url}));
-  // };
+  handleChangeUsername = (event) => this.setState({username: event.target.value});
+  handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+  handleProgress = (progress) => this.setState({progress});
+  handleUploadError = (error) => {
+  this.setState({isUploading: false});
+    console.error(error);
+  }
+  handleUploadSuccess = (filename) => {
+    this.setState({avatar: filename, progress: 100, isUploading: false});
+    firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
+  };
 
   render() {
     const { name, username, password, newPassword, phoneNumber } = this.state;
-    console.log(this.state.imageURL)
+    console.log(this.state)
     return (
       <>
         <h1>Editar Perfil</h1>
@@ -74,8 +78,18 @@ class FormEditProfile extends Component {
           <label>Número de teléfono</label>
           <input type="text" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} className="borderTest" />
           <input type="submit" value="Save" />
+              <FileUploader
+                accept="image/*"
+                name="avatar"
+                randomizeFilename
+                storageRef={firebase.storage().ref('/fotos')}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+             />
           </form>
-          <FileUpload getImageURL={this.getImageURL}/>
+          {/* <FileUpload getImageURL={this.getImageURL}/> */}
       </>
     );
   }
