@@ -3,12 +3,12 @@ import { withAuth } from '../providers/AuthProvider';
 import Navbar from '../components/Navbar';
 import tripService from '../lib/trip-services';
 import TripCard from '../components/TripCard';
-import CoursesSearch from '../components/CoursesSearch';
 
 
 class Trips extends Component {
   state = {
     data: [],
+    search:''
   }
 
   componentDidMount() {
@@ -28,20 +28,29 @@ class Trips extends Component {
   filterCompare = (value) => {
     const { data } = this.state;
     this.setState({
-      data: [...data].filter(data =>{ 
+      data: [...data].filter(data => { 
         console.log(data.title)
-        data.title.toLowerCase().includes(value.toLowerCase)})
+        return data.title.toLowerCase().includes(value.toLowerCase)})
     })
   }
 
+  handleChange = (e) => {
+    this.setState({
+        search : e.target.value
+    })
+    console.log(this.state.search)
+  }
+
   render() {
-    // const { user } = this.props
     const { data } = this.state;
+    const filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));
+    console.log(filteredList)
     return (
       <>
         <div className="trips-margin-div-global">
           <div className="trips-height-tool-bar">
-            <CoursesSearch onSearch={this.filterCompare} />
+            <input onChange={this.handleChange}>
+            </input>
           </div>
           <div className="trips-height-filter">
             <p>Filtros</p>
@@ -49,7 +58,7 @@ class Trips extends Component {
           <div className="trips-div-title-margin">
             <p className="trips-title font-family-montserrat">Viajes más populares</p>
           </div>
-          {data.map(singleTrip => (
+          {filteredList.map(singleTrip => (
             <TripCard
               data={singleTrip}
             />))}
