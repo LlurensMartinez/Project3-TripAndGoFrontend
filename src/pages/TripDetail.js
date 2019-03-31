@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import tripService from '../lib/trip-services';
+import profileService from '../lib/profile-service';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
 
@@ -25,7 +26,6 @@ class TripDetail extends Component {
   }
 
   checkUserIsJoin() {
-    console.log(this.state.data)
     const { participants } = this.state.data;
     let idUsersJoin = participants.map(x => {
       if(this.props.user._id === x){
@@ -37,7 +37,7 @@ class TripDetail extends Component {
           isJoin: false,
         })
       }
-      console.log(this.state.isJoin)
+      
    });
   }
 
@@ -77,15 +77,17 @@ class TripDetail extends Component {
   }
 
   renderList(){
-    const { participants } = this.state.data;
-    const { name } = this.props.user
-    console.log(participants)
-
-    return participants.map((participant, index) => {
-      return <h1>{participant}</h1>
+    let { participants } = this.state.data;
+    // const { name } = this.props.user
+    let test = participants.map((participant) => {
+       profileService.getParticipants(participant)
+                  .then((data) => {
+                    console.log(data)
+                  })
     })
   }
 
+  
   render() {
     const { data, isLoading, isJoin } = this.state;
     switch (isLoading) {

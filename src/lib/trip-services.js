@@ -47,6 +47,7 @@ class TripService {
       .then(({ data }) => data);
   }
 
+
   leaveTrip(id) {
     return this.trip.put(`/trip/${id}/leave`)
       .then(({ data }) => data);

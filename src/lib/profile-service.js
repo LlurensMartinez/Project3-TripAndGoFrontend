@@ -18,6 +18,12 @@ class ProfileService {
     return this.profile.get(`/profile`)
       .then(({ data }) => data);
   }
+
+  // Llama a la Api para mostras perfiles de los participantes
+  getParticipants(participant) {
+    return this.profile.get(`/profile/participants/${participant}`)
+      .then(({ data }) => data);
+  }
 }
 const profileService = new ProfileService();
 
