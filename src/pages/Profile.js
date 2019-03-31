@@ -38,6 +38,7 @@ class Profile extends Component {
         <Link to="/profile/me/edit">
           <img src="/images/profile-edit.png" alt="profile-edit" className="size-5vh arrow-back"/>
         </Link>
+        
       </>
     );
   }
