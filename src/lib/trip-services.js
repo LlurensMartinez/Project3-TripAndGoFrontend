@@ -10,8 +10,8 @@ class TripService {
   }
 
   create(data) {
-    const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = data;
-    return this.trip.post('/trip', { title, description, itinerary, date, dateInit, ageRange, numberPersons })
+    const { title, description, itinerary, date, dateInit, ageRange, numberPersons, imageURL  } = data;
+    return this.trip.post('/trip', { title, description, itinerary, date, dateInit, ageRange, numberPersons, imageURL  })
       .then(({ data }) => data);
   }
 

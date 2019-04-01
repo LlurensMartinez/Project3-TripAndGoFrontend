@@ -42,11 +42,6 @@ class FormEditProfile extends Component {
     this.setState({ [name]: value });
   }
 
-  // getImageURL = (image) => {
-  //   this.setState ({
-  //     imageURL:image
-  //   })
-  // }
   handleChangeUsername = (event) => this.setState({username: event.target.value});
   handleUploadStart = () => this.setState({isUploading: true, progress: 0});
   handleProgress = (progress) => this.setState({progress});
@@ -91,7 +86,6 @@ class FormEditProfile extends Component {
                 onProgress={this.handleProgress}
              />
           </form>
-          {/* <FileUpload getImageURL={this.getImageURL}/> */}
       </>
     );
   }

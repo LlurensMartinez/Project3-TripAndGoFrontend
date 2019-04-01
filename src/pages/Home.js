@@ -16,14 +16,15 @@ class Home extends Component {
         <div class="home-container">
           <img src="/images/tripandgo-logo.png" className="home-logo" alt="logo"></img>
           <p>lLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nulla vel euismod interdum. 
-            Vestibulum gravida ligula nec sapien auctor commodo. Nullam sodales, est vitae ultrices tincidunt, leo ipsum egestas ligula, 
-            ut elementum felis justo quis ex.
+            Vestibulum gravida
           </p>
-          <Link to='/signup'  className="home-btn-signup">Signup</Link>
           <Link to='/login' className="home-btn-login">Login</Link>
+          <div className="home-btn-signup">
+            <p>¿No tienes una cuenta?</p><Link to='/signup'>¡Registrate!</Link>
+          </div>
+          
         </div>)
     }
-  
   }
 }
 

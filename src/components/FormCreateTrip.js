@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import tripService from '../lib/trip-services';
 import { withRouter } from 'react-router-dom';
+import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
 
 class FormCreateTrip extends Component {
   state = {
@@ -11,18 +13,17 @@ class FormCreateTrip extends Component {
     dateInit: "",
     ageRange: "18-25",
     numberPersons: "",
+    imageURL: '',
+    avatar: '',
+    isUploading: false,
+    progress: 0,
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const title = this.state.title;
-    const description = this.state.description;
-    const itinerary = this.state.itinerary;
-    const date = this.state.date;
-    const dateInit = this.state.dateInit;
-    const ageRange = this.state.ageRange;
-    const numberPersons = this.state.numberPersons;
-    tripService.create({ title, description, itinerary, date, dateInit, ageRange, numberPersons })
+    const { title, description,itinerary,date, dateInit, ageRange, numberPersons,imageURL } = this.state;
+    
+    tripService.create({ title, description, itinerary, date, dateInit, ageRange, numberPersons,imageURL })
       .then((data) => {
         this.props.history.push(`/trips/${data._id}`);
       })
@@ -33,6 +34,19 @@ class FormCreateTrip extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
+
+
+  handleChangeUsername = (event) => this.setState({username: event.target.value});
+  handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+  handleProgress = (progress) => this.setState({progress});
+  handleUploadError = (error) => {
+  this.setState({isUploading: false});
+    console.error(error);
+  }
+  handleUploadSuccess = (filename) => {
+    this.setState({avatar: filename, progress: 100, isUploading: false});
+    firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
+  };
 
   render() {
     const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = this.state;
@@ -84,6 +98,16 @@ class FormCreateTrip extends Component {
             <div className="formcreatetrip-margin-top">
               <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
             </div>
+            <FileUploader
+                accept="image/*"
+                name="avatar"
+                randomizeFilename
+                storageRef={firebase.storage().ref('/fotos')}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+             />
             <footer className="formcreatetrip-footer formcreatetrip-text-align-center">
               <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
             </footer>
