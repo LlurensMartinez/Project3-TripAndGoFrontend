@@ -57,6 +57,11 @@ class TripService {
     return this.trip.get('/trip/mytripsjoin')
       .then(({ data }) => data);
   }
+
+  // getMyTripsFavs(){
+  //   return this.trip.get('/trip/mytripsfav')
+  //     .then(({ data }) => data);
+  // }
 }
 
 

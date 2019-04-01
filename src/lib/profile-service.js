@@ -24,6 +24,14 @@ class ProfileService {
     return this.profile.get(`/profile/participants/${participant}`)
       .then(({ data }) => data);
   }
+  joinFav(id) {
+    return this.profile.put(`/profile/${id}/addfavs`)
+      .then(({ data }) => data);
+  }
+  getMyTripsFavs(){
+    return this.profile.get('/profile/favoritos')
+      .then(({ data }) => data);
+  }
 }
 const profileService = new ProfileService();
 
