@@ -28,6 +28,7 @@
     line-height : 24px;
     width: 45vh;
     margin: 0 auto;
+    padding-top: 4vh;
 }
 
 .home-montserrat600{
@@ -45,10 +46,18 @@
 }
 
 .home-newsession-link {
-    padding: 2vh 5vh 2vh 5vh;
+    padding: 1.5vh 10vh 1.5vh 10vh;
     border-radius: 30.5px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
     background-color: #151515;
     font-size: 3vh;
-    
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color:white;
   }
+
+.home-margin-top{
+    margin-top: 15vh;
+    text-align: center;
+}

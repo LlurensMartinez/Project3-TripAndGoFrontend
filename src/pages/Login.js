@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../providers/AuthProvider';
-
+import { Link } from 'react-router-dom';
 class Login extends Component {
   state = {
     username: "",
@@ -11,40 +11,44 @@ class Login extends Component {
     event.preventDefault();
     const { username, password } = this.state
     this.props.login({ username, password })
-    // .then((data) => {
-    //   if(data.username){
-    //     // this.props.setUser(data)
-    //     console.log(data)
-    //     }
-    //     this.setState({
-    //       error: data.response.data.error
-    //     })
-    //   })
-    .then(()=>{})
-    .catch(error => console.log(error))
+      // .then((data) => {
+      //   if(data.username){
+      //     // this.props.setUser(data)
+      //     console.log(data)
+      //     }
+      //     this.setState({
+      //       error: data.response.data.error
+      //     })
+      //   })
+      .then(() => { })
+      .catch(error => console.log(error))
   }
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
     const { username, password } = this.state;
     return (
       <div className="login-div-container">
-      <h1>Iniciar Sesión</h1>
-      <form onSubmit={this.handleFormSubmit} className="login-form">
-        <label>Dirección de correo electrónico:</label>
-        <input className="login-form-input" type="email" name="username" value={username} onChange={this.handleChange}/>
-        <label>Contraseña:</label>
-        <input  className="login-form-input"type="password" name="password" value={password} onChange={this.handleChange} />
-        {/* {this.state.error} */}
-        <div className="login-input-submit-container">
-        <i id="login-submit" className="fas fa-sign-in-alt" type="submit"></i>
-        <input  className="login-input-submit" type="submit" value=""/>
+        <div className="login-box">
+          <div className="login-text-align-center">
+            <img className="login-position-logo" src="/images/logo-blanco.png" alt="logo" />
+          </div>
+          <form onSubmit={this.handleFormSubmit} className="login-form">
+            <label className="login-label-email">EMAIL</label>
+            <input className="login-form-input2 login-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
+            <input placeholder="PASSWORD" className=" login-margin-top login-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
+            {/* {this.state.error} */}
+              <button className="login-form-button-submit login-border-none" type="submit">INICIAR SESIÓN</button>
+            <div className="login-dont-have-account">
+            <p>¿No tienes una cuenta?</p>
+              <p><Link className="color-black" to='/signup'>¡Registrate!</Link></p>
+            </div>
+          </form>
         </div>
-      </form>
       </div>
     )
   }

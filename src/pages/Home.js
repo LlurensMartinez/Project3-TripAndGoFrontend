@@ -23,7 +23,9 @@ class Home extends Component {
           </p>
               <p className="home-montserrat800 home-link-color-white">Inicia tu aventura</p>
             </div>
-            <Link to='/login' className="home-newsession-link">INICIAR SESIÓN</Link>
+            <div className="home-margin-top">
+              <Link to='/login' className="home-newsession-link">INICIAR SESIÓN</Link>
+            </div>
             <footer className="home-footer">
               <p>¿No tienes una cuenta?</p>
               <p><Link className="home-link-color-white" to='/signup'>¡Registrate!</Link></p>
