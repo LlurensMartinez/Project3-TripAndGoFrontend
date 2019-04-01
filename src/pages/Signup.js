@@ -8,24 +8,28 @@ class Signup extends Component {
     username: "",
     password: "",
     name: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    imageURL: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjw_vDWiK_hAhW_A2MBHZpHAiMQjRx6BAgBEAU&url=https%3A%2F%2Fwww.fotolia.com%2Ftag%2F%2522default%2520profile%2520picture%2522&psig=AOvVaw0-W1GC7yueSSBIzHAXvzIf&ust=1554214047329368"
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+
     const username = this.state.username;
     const password = this.state.password;
     const name = this.state.name;
     const phoneNumber = this.state.phoneNumber;
+    const imageURL = this.state.ImageURL;
 
-    this.props.signup({ username, password, name, phoneNumber })
+    this.props.signup({ username, password, name, phoneNumber, imageURL })
       .then((data) => {
         if (data.username) {
           this.setState({
             username: "",
             password: "",
             name: "",
-            phoneNumber: ""
+            phoneNumber: "",
+            imageURL: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjw_vDWiK_hAhW_A2MBHZpHAiMQjRx6BAgBEAU&url=https%3A%2F%2Fwww.fotolia.com%2Ftag%2F%2522default%2520profile%2520picture%2522&psig=AOvVaw0-W1GC7yueSSBIzHAXvzIf&ust=1554214047329368"
           });
         }
         this.setState({
