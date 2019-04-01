@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import FormEditProfile from '../components/FormEditProfile';
 import profileService from '../lib/profile-service';
 import { withRouter } from 'react-router-dom';
-import firebase from 'firebase';
-import FileUploader from 'react-firebase-file-uploader';
+
 
 
 class ProfileEdit extends Component {
@@ -14,12 +13,15 @@ class ProfileEdit extends Component {
   }
   
   componentDidMount = () => {
-    this.getProfile();
+    const { id } = this.props.match.params
+    this.getProfile(id);
   }
 
-  getProfile= () => {
-    profileService.getProfile()
+  getProfile= (id) => {
+   
+    profileService.getProfile(id)
       .then(data => {
+        console.log("daaaaaaa")
         this.setState({
           data: data,
           isLoading: false

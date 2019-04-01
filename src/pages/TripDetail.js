@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import tripService from '../lib/trip-services';
-import profileService from '../lib/profile-service';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
 
@@ -12,35 +11,25 @@ class TripDetail extends Component {
     message: "",
     isLoading: true,
     isJoin: false,
-    data2: [],
   }
 
   componentDidMount() {
     tripService.getOne(this.props.match.params.id)
       .then(data => {
         this.setState({
-          data: data
+          data: data,
+          isLoading: false
         })
       this.checkUserIsJoin();
-      this.getProfiles();
-      this.loading()
       })
   }
 
-  checkUserIsJoin() {
+  checkUserIsJoin = () => {
     const { participants } = this.state.data;
-    participants.map(x => {
-      if(this.props.user._id === x){
-        this.setState({
-          isJoin: true,
-        })
-      }else{
-        this.setState({
-          isJoin: false,
-        })
-      }
-      
-   });
+    const isJoin = participants.some(participant => participant._id === this.props.user._id);
+    this.setState({
+      isJoin
+    })
   }
 
   handleDelete = (e) => {
@@ -78,55 +67,42 @@ class TripDetail extends Component {
       })
   }
 
-  getProfiles = () => {
+  renderProfiles = () => {
     const { participants } = this.state.data;
-    participants.map((participant) => {
-       profileService.getParticipants(participant)
-        .then((data) => {
-          this.setState({
-            data2: [...this.state.data2, data]
-          })
-        })
+    return participants.map((profile) => {
+      return <Link to={`/profile/${profile._id}`}><img key={profile._id} src={profile.imageURL} alt="profile" className="tripdetail-sizeimage"/ ></Link>
     })
   }
-
-  loading = () => {
-    this.setState({
-      isLoading: false
-    })
-  }
-
-  // renderProfile = () => {
-  //   this.state.data2.map((profile) => {
-  //       console.log(profile)
-  //   })
-  // }
 
   
   render() {
     
-    const { data, isLoading, isJoin, data2 } = this.state;
+    const { data, isLoading, isJoin} = this.state;
     
     switch (isLoading) {
       case true:
         return 'loading...';
       case false:
-        console.log(data2[0])
+      console.log(data.participants.length);
         return (
           <div>
             <h1>Trip Detail</h1>
-            <img width="60px" src={data.imageURL} alt="image" />
+            <img width="60px" src={data.imageURL} alt="trip" />
             <p>{data.date}</p>
             <p>{data.dateInit}</p>
             <h1>{data.title}</h1>
             <p>{data.itinerary}</p>
             <p>{data.ageRange}</p>
             <h2>Viajeros</h2>
+            {this.renderProfiles()}
             {data.owner === this.props.user._id
               && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
             }
-            {(data.owner !== this.props.user._id && !isJoin)
-              ? <><button onClick={this.handleJoin}>Unirse</button> </> : <><button onClick={this.handleLeave}>Salir</button> </>
+            {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons>data.participants.length))
+              ? <><button onClick={this.handleJoin}>Unirse</button> </> : <> </>
+            }
+            {(data.owner !== this.props.user._id && isJoin)
+              ? <><button onClick={this.handleLeave}>Salir</button> </> : <></>
             }
             
             <Navbar />

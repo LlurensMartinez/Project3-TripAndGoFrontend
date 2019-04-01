@@ -14,8 +14,8 @@ class ProfileService {
       .then(({ data }) => data);
   }
   // Llama a la Api para recoger los datos del usuario
-  getProfile() {
-    return this.profile.get(`/profile`)
+  getProfile(id) {
+    return this.profile.get(`/profile/${id}`)
       .then(({ data }) => data);
   }
 

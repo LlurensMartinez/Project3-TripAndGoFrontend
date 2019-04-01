@@ -4,12 +4,12 @@ import { withAuth } from '../providers/AuthProvider';
 
 class Home extends Component {
   render() {
-    const { isLogged, user, logout } = this.props;
-    const { username } = user;
+    const { isLogged } = this.props;
+    // const { username } = user;
     if (isLogged) {
       return <div>
-        {/* <p>username: { username }</p>
-        <p onClick={logout}>Logout</p> */}
+        
+       
       </div>
     } else {
       return (

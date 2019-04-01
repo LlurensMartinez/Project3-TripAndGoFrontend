@@ -31,7 +31,7 @@ class Navbar extends Component {
           </Link>
         </div>
         <div className="text-align-center">
-          <Link to='/profile/me' className="text-decoration-none color-black">
+          <Link to={`/profile/${this.props.user._id}`} className="text-decoration-none color-black">
           <img src="/images/user.png" alt="user" className="size-5vh"></img>
           <p className="text-size">Perfil</p>
           </Link>

@@ -22,6 +22,7 @@ import './css/Signup.css';
 import './css/Trips.css';
 import './css/TripsNew.css';
 import './css/Home.css';
+import './css/TripDetail.css'; 
 
 
 class App extends Component {
@@ -39,7 +40,7 @@ class App extends Component {
             <PrivateRoute exact path="/trips/:id/edit" component={TripsEdit} />
             <PrivateRoute exact path="/mytrips" component={MyTrips} />
             <PrivateRoute exact path="/favs" component={TripFavs} />
-            <PrivateRoute exact path="/profile/me/edit" component={ProfileEdit} />
+            <PrivateRoute exact path="/profile/:id/edit" component={ProfileEdit} />
             <PrivateRoute exact path="/profile/me" component={Profile} />
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <Route component={NoMatch} />
