@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../providers/AuthProvider';
 import Navbar from '../components/Navbar';
-import tripService from '../lib/trip-services';
+import profileService from '../lib/profile-service';
 import TripCard from '../components/TripCard'
 
 class TripFavs extends Component {
@@ -10,8 +10,9 @@ class TripFavs extends Component {
   }
 
   componentDidMount() {
-    this.getTripCreateList();
-    this.getTripJoinList();
+    // this.getTripCreateList();
+
+    this.getTripFavList();
   }
 
 
@@ -25,8 +26,9 @@ class TripFavs extends Component {
   //     })
   // }
 
-  getTripJoinList = async () => {
-    await tripService.getMyTripsFavs()
+  getTripFavList = async () => {
+   
+    await profileService.getMyTripsFavs()
       .then(data => {
         this.setState({
           data: data
@@ -39,16 +41,16 @@ class TripFavs extends Component {
     return (
       <>
         <div className="trips-margin-div-global mytrips-margin-top-global">
-          <h1 className="trips-title font-family-montserrat">Favorites</h1>
+          {/* <h1 className="trips-title font-family-montserrat">Favorites</h1>
           {data.map(singleTrip => (
             <TripCard
               data={singleTrip}
-            />))}
-        {/* <h1 className="trips-title font-family-montserrat">Viajes confirmados</h1>
-        {dataJoin.map(singleTrip => (
+            />))} */}
+        <h1 className="trips-title font-family-montserrat">Favorites</h1>
+        {data.map(singleTrip => (
             <TripCard
               data={singleTrip}
-            />))} */}
+            />))}
         </div>
         <Navbar />
       </>

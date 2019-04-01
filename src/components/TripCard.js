@@ -4,7 +4,7 @@ import profileService from '../lib/profile-service'
 
 class TripCard extends Component {
     
-    handleJoin = (e) => {
+    handleFav = (e) => {
         const { data } = this.props;
         e.preventDefault();
         profileService.joinFav(data._id)
