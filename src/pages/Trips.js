@@ -44,8 +44,8 @@ class Trips extends Component {
     return (
       <>
         <div className="trips-margin-div-global">
-          <div className="trips-height-tool-bar">
-            <input onChange={this.handleChange}>
+          <div>
+            <input className="tripcard-style-toolbar" onChange={this.handleChange}>
             </input>
           </div>
           <div className="trips-height-filter">

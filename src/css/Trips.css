@@ -8,7 +8,7 @@
     border: 1px solid rgb(238, 47, 47);
 }
 
-.trips-margin-div-global{
+.trips-margin-div-global {
     margin-right: 3.5vh;
     margin-left: 3.5vh;
     margin-bottom: 19%;
@@ -18,7 +18,7 @@
     margin-top: 3vh;
 }
 
-.trips-title{
+.trips-title {
     font-size: 3.5vh;
 }
 
@@ -31,24 +31,37 @@
     margin-top: 3vh;
 }
 
-.tripcard-image{
+.tripcard-image {
     width: 100%;
     height: 25vh;
     border-radius: 1vh;
 }
 
-.tripscard-margin-top{
+.tripscard-margin-top {
     margin-top: 3vh;
     margin-bottom: 4vh;
 }
 
-.tripcard-title{
+.tripcard-title {
     font-size: 2.9vh;
     margin-top: 0.9vh;
 }
 
-.tripcard-style-p{
+.tripcard-style-p {
     font-size: 2.1vh;
     margin-top: 1vh;
     color: #404040;
+}
+
+.tripcard-style-toolbar {
+    width: 328px;
+    height: 40px;
+    opacity: 0.8;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border: none;
+    margin-top: 2vh;
+    font-size: 14px;
+    padding-left: 1.5vh;
 }
