@@ -13,12 +13,15 @@ class ProfileEdit extends Component {
   }
   
   componentDidMount = () => {
-    this.getProfile();
+    const { id } = this.props.match.params
+    this.getProfile(id);
   }
 
-  getProfile= () => {
-    profileService.getProfile()
+  getProfile= (id) => {
+   
+    profileService.getProfile(id)
       .then(data => {
+        console.log("daaaaaaa")
         this.setState({
           data: data,
           isLoading: false

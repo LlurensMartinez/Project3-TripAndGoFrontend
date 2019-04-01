@@ -11,16 +11,18 @@ class Profile extends Component {
     
   }
   componentDidMount() {
-      profileService.getProfile()
-      .then(data => {
-        this.setState({
-          data: data
-        })
+    const { id } = this.props.match.params
+    profileService.getProfile(id)
+    .then(data => {
+      this.setState({
+        data: data
       })
+    })
   }
   render() {
-    const {name, username, phoneNumber,imageURL} = this.state.data;
-    const { logout } = this.props;
+    const {_id, name, username, phoneNumber,imageURL} = this.state.data;
+    const { logout, user } = this.props;
+
     return (
       <>
       <div className="nav-top">
@@ -37,10 +39,12 @@ class Profile extends Component {
         <h3>{username}</h3>
         <h3>Número de teléfono</h3>
         <h3>{phoneNumber}</h3>
-        <Link to="/profile/me/edit">
-          <img src="/images/profile-edit.png" alt="profile-edit" className="size-5vh arrow-back"/>
-        </Link>
-        <p onClick={logout}>Logout</p> 
+        {_id === this.props.user._id
+              && <> <Link to={`/profile/${user._id}/edit`}>
+                       <img src="/images/profile-edit.png" alt="profile-edit" className="size-5vh arrow-back"/>
+                    </Link>  
+                    <p onClick={logout}>Logout</p></> 
+        }
       </>
     );
   }
