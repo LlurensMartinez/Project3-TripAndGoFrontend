@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import FormEditProfile from '../components/FormEditProfile';
 import profileService from '../lib/profile-service';
 import { withRouter } from 'react-router-dom';
-import firebase from 'firebase';
-import FileUploader from 'react-firebase-file-uploader';
+
 
 
 class ProfileEdit extends Component {

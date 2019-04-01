@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import profileService from '../lib/profile-service';
 import { Link } from 'react-router-dom';
+import { withAuth } from '../providers/AuthProvider';
 
 class Profile extends Component {
 
@@ -19,6 +20,7 @@ class Profile extends Component {
   }
   render() {
     const {name, username, phoneNumber,imageURL} = this.state.data;
+    const { logout } = this.props;
     return (
       <>
       <div className="nav-top">
@@ -38,10 +40,10 @@ class Profile extends Component {
         <Link to="/profile/me/edit">
           <img src="/images/profile-edit.png" alt="profile-edit" className="size-5vh arrow-back"/>
         </Link>
-        
+        <p onClick={logout}>Logout</p> 
       </>
     );
   }
 }
 
-export default withRouter(Profile);
+export default withAuth(withRouter(Profile));

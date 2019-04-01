@@ -58,7 +58,7 @@ class FormCreateTrip extends Component {
           </div>
           <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
             <div >
-              <input className="font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} className="borderTest" />
+              <input className="font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} />
             </div>
             <div className="formcreatetrip-margin-top">
               <textarea className="font-family-roboto formcreatetrip-text-area" name="description" placeholder="Descripción del viaje" value={description} onChange={this.handleChange}>
@@ -96,7 +96,7 @@ class FormCreateTrip extends Component {
               </select>
             </div>
             <div className="formcreatetrip-margin-top">
-              <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
+              <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} />
             </div>
             <FileUploader
                 accept="image/*"

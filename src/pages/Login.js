@@ -32,7 +32,7 @@ class Login extends Component {
         <label>Contraseña:</label>
         <input  className="login-form-input"type="password" name="password" value={password} onChange={this.handleChange} />
         <div className="login-input-submit-container">
-        <i id="login-submit" class="fas fa-sign-in-alt" type="submit"></i>
+        <i id="login-submit" className="fas fa-sign-in-alt" type="submit"></i>
         <input  className="login-input-submit" type="submit" value=""/>
         </div>
       </form>
