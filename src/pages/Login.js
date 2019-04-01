@@ -12,8 +12,14 @@ class Login extends Component {
     const { username, password } = this.state
 
     this.props.login({ username, password })
-      .then(() => {})
-      .catch( error => console.log(error) )
+      .then((data) => {
+        if(data.username){
+          this.props.setUser(data)
+        }
+        this.setState({
+          error: data.response.data.error
+        })
+      })
   }
 
   handleChange = (event) => {  
@@ -31,6 +37,7 @@ class Login extends Component {
         <input className="login-form-input" type="email" name="username" value={username} onChange={this.handleChange}/>
         <label>Contraseña:</label>
         <input  className="login-form-input"type="password" name="password" value={password} onChange={this.handleChange} />
+        {this.state.error}
         <div className="login-input-submit-container">
         <i id="login-submit" className="fas fa-sign-in-alt" type="submit"></i>
         <input  className="login-input-submit" type="submit" value=""/>

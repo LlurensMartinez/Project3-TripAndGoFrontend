@@ -19,20 +19,26 @@ class Signup extends Component {
     const phoneNumber = this.state.phoneNumber;
 
     this.props.signup({ username, password, name, phoneNumber })
-      .then(() => {
-        this.setState({
+      .then((data) => {
+        if (data.username) {
+          this.setState({
             username: "",
             password: "",
             name: "",
             phoneNumber: ""
-        });
+          });
+        }
+        this.setState({
+          error: data.response.data.error
+        })
+
       })
-      .catch(error => console.log(error) )
+      .catch(error => console.log(error))
   }
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -44,19 +50,20 @@ class Signup extends Component {
           <label>Nombre y apellidos</label>
           <input className="signup-form-input" type="text" name="name" value={name} onChange={this.handleChange} />
           <label>Dirección de correo electrónico</label>
-          <input  className="signup-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
+          <input className="signup-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
           <label>Contraseña</label>
-          <input  className="signup-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
+          <input className="signup-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
           {/* <label>Repita la contraseña:</label>
           <input type="password" name="confirmPassword" value={password} onChange={this.handleChange} /> */}
           <label>Número de teléfono</label>
-          <input className="signup-form-input" type="number" name="phoneNumber" value={phoneNumber} onChange={this.handleChange}/>
-           <p id="signup-p">Already have account? 
+          <input className="signup-form-input" type="number" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} />
+          {this.state.error}
+          <p id="signup-p">Already have account?
           <Link to={"/login"}> Login</Link>
           </p>
           <div className="signup-input-submit-container">
-          <i id="login-submit" class="fas fa-sign-in-alt"></i>
-          <input className="login-input-submit" type="submit" value="" />
+            <i id="login-submit" class="fas fa-sign-in-alt"></i>
+            <input className="login-input-submit" type="submit" value="" />
           </div>
         </form>
 
