@@ -15,37 +15,21 @@ class TripFavs extends Component {
     this.getTripFavList();
   }
 
-
-
-  // getTripCreateList = async () => {
-  //   await tripService.getMyTrips()
-  //     .then(data => {
-  //       this.setState({
-  //         data: data
-  //       })
-  //     })
-  // }
-
   getTripFavList = async () => {
-   
-    await profileService.getMyTripsFavs()
+   await profileService.getMyTripsFavs()
       .then(data => {
         this.setState({
-          data: data
+          data: data.favTrips
         })
       })
   }
 
   render() {
     const { data } = this.state;
+    console.log("holaaaaaa",data);
     return (
       <>
         <div className="trips-margin-div-global mytrips-margin-top-global">
-          {/* <h1 className="trips-title font-family-montserrat">Favorites</h1>
-          {data.map(singleTrip => (
-            <TripCard
-              data={singleTrip}
-            />))} */}
         <h1 className="trips-title font-family-montserrat">Favorites</h1>
         {data.map(singleTrip => (
             <TripCard
