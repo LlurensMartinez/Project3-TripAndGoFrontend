@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import profileService from '../lib/profile-service'
 
 class TripCard extends Component {
+    
+    handleJoin = (e) => {
+        const { data } = this.props;
+        e.preventDefault();
+        profileService.joinFav(data._id)
+          .then(message => {
+            this.setState({
+              message,
+            })
+          })
+      }
 
     render() {
         const { data } = this.props;
         return (
             <div className="tripscard-margin-top">
                 <div>
+                <button onClick={this.handleFav}>Favoritos</button>
                     <Link to={`/trips/${data._id}`}>
                         <img className="tripcard-image" src={data.imageURL} alt="trip" />
                     </Link>
