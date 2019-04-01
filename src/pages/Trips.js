@@ -21,7 +21,6 @@ class Trips extends Component {
         this.setState({
           data: data
         })
-        console.log(data)
       })
   }
 
@@ -29,7 +28,6 @@ class Trips extends Component {
     const { data } = this.state;
     this.setState({
       data: [...data].filter(data => { 
-        console.log(data.title)
         return data.title.toLowerCase().includes(value.toLowerCase)})
     })
   }
@@ -38,13 +36,11 @@ class Trips extends Component {
     this.setState({
         search : e.target.value
     })
-    console.log(this.state.search)
   }
 
   render() {
     const { data } = this.state;
     const filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));
-    console.log(filteredList)
     return (
       <>
         <div className="trips-margin-div-global">
