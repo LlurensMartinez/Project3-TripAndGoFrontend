@@ -13,7 +13,7 @@ class FormCreateTrip extends Component {
     dateInit: "",
     ageRange: "18-25",
     numberPersons: "",
-    imageURL: '',
+    imageURL: 'http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg',
     avatar: '',
     isUploading: false,
     progress: 0,

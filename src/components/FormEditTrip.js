@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import tripService from '../lib/trip-services';
+import firebase from 'firebase';
+import FileUploader from 'react-firebase-file-uploader';
 
 class FormEditTrip extends Component {
   state = {
@@ -15,15 +17,9 @@ class FormEditTrip extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const title = this.state.title;
-    const description = this.state.description;
-    const itinerary = this.state.itinerary;
-    const date = this.state.date;
-    const dateInit = this.state.dateInit;
-    const ageRange = this.state.ageRange;
-    const numberPersons = this.state.numberPersons;
+    const { title, description,itinerary,date, dateInit, ageRange, numberPersons,imageURL } = this.state;
 
-    tripService.edit(this.props.trip._id,{ title, description, itinerary, date, dateInit, ageRange, numberPersons })
+    tripService.edit(this.props.trip._id,{ title, description, itinerary, date, dateInit, ageRange, numberPersons, imageURL })
       .then(() => {
         this.props.history.goBack();
       })
@@ -35,6 +31,17 @@ class FormEditTrip extends Component {
     this.setState({ [name]: value });
   }
 
+  handleChangeUsername = (event) => this.setState({username: event.target.value});
+  handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+  handleProgress = (progress) => this.setState({progress});
+  handleUploadError = (error) => {
+  this.setState({isUploading: false});
+    console.error(error);
+  }
+  handleUploadSuccess = (filename) => {
+    this.setState({avatar: filename, progress: 100, isUploading: false});
+    firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
+  };
 
   render() {
     const { title, description, itinerary, date,dateInit, ageRange, numberPersons } = this.state;
@@ -64,6 +71,16 @@ class FormEditTrip extends Component {
           </select>
           <label>Número máximo de personas:</label>
           <input type="number" name="numberPersons" value={numberPersons} onChange={this.handleChange} className="borderTest" />
+          <FileUploader
+                accept="image/*"
+                name="avatar"
+                randomizeFilename
+                storageRef={firebase.storage().ref('/fotos')}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+             />
           <input type="submit" value="Editar viaje" />
         </form>
       </>

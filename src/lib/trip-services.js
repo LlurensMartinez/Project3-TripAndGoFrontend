@@ -16,8 +16,8 @@ class TripService {
   }
 
   edit(id,data) {
-    const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = data;
-    return this.trip.put(`/trip/${id}/edit`, { title, description, itinerary, date, dateInit, ageRange, numberPersons })
+    const { title, description, itinerary, date, dateInit, ageRange, numberPersons, imageURL } = data;
+    return this.trip.put(`/trip/${id}/edit`, { title, description, itinerary, date, dateInit, ageRange, numberPersons, imageURL })
       .then(({ data }) => data);
   }
   // Llama a la Api para recoger todos los viajes

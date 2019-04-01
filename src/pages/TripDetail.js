@@ -116,7 +116,7 @@ class TripDetail extends Component {
           <div>
             
             <h1>Trip Detail</h1>
-            <img width="60px" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image" />
+            <img width="60px" src={data.imageURL} alt="image" />
             <p>{data.date}</p>
             <p>{data.dateInit}</p>
             <h1>{data.title}</h1>

@@ -8,7 +8,7 @@ class TripCard extends Component {
             <div className="tripscard-margin-top">
                 <div>
                     <Link to={`/trips/${data._id}`}>
-                        <img className="tripcard-image" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image" />
+                        <img className="tripcard-image" src={data.imageURL} alt="trip" />
                     </Link>
                 </div>
                 <h1 className="font-family-montserrat tripcard-title">{data.title}</h1>
