@@ -8,22 +8,29 @@ class Home extends Component {
     // const { username } = user;
     if (isLogged) {
       return <div>
-        
-       
+
+
       </div>
     } else {
       return (
-        <div class="home-container">
-          <img src="/images/tripandgo-logo.png" className="home-logo" alt="logo"></img>
-          <p>lLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nulla vel euismod interdum. 
-            Vestibulum gravida
+        <div className="home-background">
+          <div className="home-padding-top">
+            <div className="text-align-center">
+              <img src="/images/logo.png" alt="logo" />
+            </div>
+            <div className="text-align-center home-line-height">
+              <p className="home-montserrat600 home-link-color-white">¿Quieres viajar y no tienes con quién ir?
           </p>
-          <Link to='/login' className="home-btn-login">Login</Link>
-          <div className="home-btn-signup">
-            <p>¿No tienes una cuenta?</p><Link to='/signup'>¡Registrate!</Link>
+              <p className="home-montserrat800 home-link-color-white">Inicia tu aventura</p>
+            </div>
+            <Link to='/login' className="home-newsession-link">INICIAR SESIÓN</Link>
+            <footer className="home-footer">
+              <p>¿No tienes una cuenta?</p>
+              <p><Link className="home-link-color-white" to='/signup'>¡Registrate!</Link></p>
+            </footer>
           </div>
-          
-        </div>)
+        </div>
+      )
     }
   }
 }
