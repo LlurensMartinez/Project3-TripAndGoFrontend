@@ -37,7 +37,7 @@ class Trips extends Component {
         search : e.target.value
     })
   }
-
+  
   render() {
     const { data } = this.state;
     const filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));

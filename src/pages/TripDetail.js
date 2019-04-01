@@ -114,7 +114,6 @@ class TripDetail extends Component {
         console.log(data2[0])
         return (
           <div>
-            
             <h1>Trip Detail</h1>
             <img width="60px" src={data.imageURL} alt="image" />
             <p>{data.date}</p>
