@@ -12,22 +12,24 @@ class TripDetail extends Component {
     message: "",
     isLoading: true,
     isJoin: false,
+    data2: [],
   }
 
   componentDidMount() {
     tripService.getOne(this.props.match.params.id)
       .then(data => {
         this.setState({
-          data: data,
-          isLoading: false,
+          data: data
         })
-        this.checkUserIsJoin();
+      this.checkUserIsJoin();
+      this.getProfiles();
+      this.loading()
       })
   }
 
   checkUserIsJoin() {
     const { participants } = this.state.data;
-    let idUsersJoin = participants.map(x => {
+    participants.map(x => {
       if(this.props.user._id === x){
         this.setState({
           isJoin: true,
@@ -76,26 +78,43 @@ class TripDetail extends Component {
       })
   }
 
-  renderList(){
-    let { participants } = this.state.data;
-    // const { name } = this.props.user
-    let test = participants.map((participant) => {
+  getProfiles = () => {
+    const { participants } = this.state.data;
+    participants.map((participant) => {
        profileService.getParticipants(participant)
-                  .then((data) => {
-                    console.log(data)
-                  })
+        .then((data) => {
+          this.setState({
+            data2: [...this.state.data2, data]
+          })
+        })
     })
   }
 
+  loading = () => {
+    this.setState({
+      isLoading: false
+    })
+  }
+
+  // renderProfile = () => {
+  //   this.state.data2.map((profile) => {
+  //       console.log(profile)
+  //   })
+  // }
+
   
   render() {
-    const { data, isLoading, isJoin } = this.state;
+    
+    const { data, isLoading, isJoin, data2 } = this.state;
+    
     switch (isLoading) {
       case true:
         return 'loading...';
       case false:
+        console.log(data2[0])
         return (
           <div>
+            
             <h1>Trip Detail</h1>
             <img width="60px" src="http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg" alt="image" />
             <p>{data.date}</p>
@@ -104,7 +123,6 @@ class TripDetail extends Component {
             <p>{data.itinerary}</p>
             <p>{data.ageRange}</p>
             <h2>Viajeros</h2>
-            {this.renderList()}
             {data.owner === this.props.user._id
               && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
             }
