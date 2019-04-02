@@ -40,21 +40,31 @@ class FormEditTrip extends Component {
     firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
   };
 
+  onTestChange = () => {
+    let key = window.event.keyCode;
+    // If the user has pressed enter
+    if (key === 13) {
+        document.getElementById("txtArea").value = document.getElementById("txtArea").value + "\n*";
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
   render() {
-    const { title, description, itinerary } = this.state;
-    console.log(this.state);
-    
+    const { title, description, itinerary } = this.state; 
     return (
       <>
         <h1>Editar viaje</h1>
         <form onSubmit={this.handleFormSubmit}>
           <label>Introduce el título de tu viaje</label>
-          <input type="text" name="title" value={title} onChange={this.handleChange} className="borderTest" />
+          <input  name="title" value={title} onChange={this.handleChange} className="borderTest" />
           <label>Descripción:</label>
-          <textarea name="description" value={description} onChange={this.handleChange}>
-          </textarea>
+          
+          <textarea name="description" rows="10" value={description} onChange={this.handleChange}></textarea>
           <label>Itinerario:</label>
-          <input type="text" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest" />
+          <textarea  type="text" rows="10" cols="50" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest" />
           <FileUploader
                 accept="image/*"
                 name="avatar"

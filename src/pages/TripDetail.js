@@ -100,7 +100,7 @@ class TripDetail extends Component {
                   <img className="tripdetail-icons" src="/images/itinerario.png" />
                 </div>
                 <div>
-                  <p className="tripdetail-padding-top">{data.itinerary}</p>
+                  <pre className="tripdetail-padding-top">{data.itinerary}</pre>
                 </div>
               </div>
               <div className="tripdetail-displayflex">
@@ -121,7 +121,7 @@ class TripDetail extends Component {
               </div>
               <div className="tripdetail-barra"></div>
               <p className="tripedetail-description">Descripción</p>
-              <p className="tripdetail-text-description">{data.description}</p>
+              <pre className="tripdetail-text-description">{data.description}</pre>
             </div>
             <Navbar />
           </div>
