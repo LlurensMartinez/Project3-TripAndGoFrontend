@@ -83,7 +83,6 @@ class TripDetail extends Component {
       case true:
         return 'loading...';
       case false:
-      console.log(data.participants.length);
         return (
           <div>
             <h1>Trip Detail</h1>

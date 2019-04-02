@@ -43,11 +43,13 @@ class MyTrips extends Component {
           <h1 className="trips-title font-family-montserrat">Mis viajes</h1>
           {data.map(singleTrip => (
             <TripCard
+              key={singleTrip._id}
               data={singleTrip}
             />))}
         <h1 className="trips-title font-family-montserrat">Viajes confirmados</h1>
         {dataJoin.map(singleTrip => (
             <TripCard
+              key={singleTrip._id}
               data={singleTrip}
             />))}
         </div>

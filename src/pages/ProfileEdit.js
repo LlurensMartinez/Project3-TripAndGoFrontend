@@ -21,7 +21,6 @@ class ProfileEdit extends Component {
    
     profileService.getProfile(id)
       .then(data => {
-        console.log("daaaaaaa")
         this.setState({
           data: data,
           isLoading: false

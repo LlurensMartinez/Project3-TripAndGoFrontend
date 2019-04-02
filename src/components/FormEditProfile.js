@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import profileService from '../lib/profile-service';
-// import FileUpload from './FileUpload';
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
@@ -15,7 +14,6 @@ class FormEditProfile extends Component {
     avatar: '',
     isUploading: false,
     progress: 0,
-    // avatarURL: ''
   }
  
 
@@ -56,7 +54,6 @@ class FormEditProfile extends Component {
 
   render() {
     const { name, username, password, newPassword, phoneNumber } = this.state;
-    console.log(this.state)
     return (
       <>
         <h1>Editar Perfil</h1>

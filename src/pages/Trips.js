@@ -56,6 +56,7 @@ class Trips extends Component {
           </div>
           {filteredList.map(singleTrip => (
             <TripCard
+              key={singleTrip._id}
               data={singleTrip}
             />))}
         </div>

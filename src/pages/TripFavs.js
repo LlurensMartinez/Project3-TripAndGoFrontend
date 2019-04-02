@@ -10,8 +10,6 @@ class TripFavs extends Component {
   }
 
   componentDidMount() {
-    // this.getTripCreateList();
-
     this.getTripFavList();
   }
 
@@ -26,13 +24,13 @@ class TripFavs extends Component {
 
   render() {
     const { data } = this.state;
-    console.log("holaaaaaa",data);
     return (
       <>
         <div className="trips-margin-div-global mytrips-margin-top-global">
         <h1 className="trips-title font-family-montserrat">Favorites</h1>
         {data.map(singleTrip => (
             <TripCard
+              key={singleTrip._id}
               data={singleTrip}
             />))}
         </div>
