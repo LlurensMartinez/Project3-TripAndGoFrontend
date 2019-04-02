@@ -18,6 +18,12 @@ class TripDetail extends Component {
   componentDidMount() {
     tripService.getOne(this.props.match.params.id)
       .then(data => {
+        // Formating comments, to replace \b by <br>
+        let comments = document.querySelectorAll('.comment-text p');
+        comments.forEach((comment) => {
+          let content = comment.innerHTML.replace(/\n/g, '<br>');
+          comment.innerHTML = content;
+        });
         this.setState({
           data: data,
           isLoading: false
@@ -86,17 +92,17 @@ class TripDetail extends Component {
       case false:
         return (
           <div>
-                {data.owner === this.props.user._id
-                  && <div className="text-align-right"><button className="tripdetail-button-never-effect" onClick={this.handleDelete}><img className="tripdetail-size-image-delete" src="/images/delete.png"/></button></div>
-                }
+            {data.owner === this.props.user._id
+              && <div className="text-align-right"><button className="tripdetail-button-never-effect" onClick={this.handleDelete}><img className="tripdetail-size-image-delete" src="/images/delete.png" /></button></div>
+            }
             <img className="tripdetail-image" src={data.imageURL} alt="trip" />
             <div className="tripdetail-margin-global">
-            <div className="tripdetail-float">
-              <h1 className="tripdetail-title">{data.title}</h1>
+              <div className="tripdetail-float">
+                <h1 className="tripdetail-title">{data.title}</h1>
                 {data.owner === this.props.user._id
-                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png"/></Link>
+                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png" /></Link>
                 }
-            </div>
+              </div>
               <div className="tripdetail-displayflex">
                 <img className="tripdetail-icons" src="/images/calendar.png" />
                 <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>

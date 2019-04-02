@@ -1,5 +1,6 @@
-.formcreatetrip-margin-top{
+.formcreate -margin-top{
     margin-top: 3vh;
+    width: 95%;
 }
 
 .formcreatetrip-inputstyles{
@@ -9,7 +10,7 @@
 
 .borderTest {
     border:none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #909090;
     border-radius: 0;
     width: 100%;
   }
@@ -62,4 +63,11 @@
   bottom: 0;
   height: 8vh;
   width: 90%;
+}
+
+.formcreate-border-input{
+    border-radius: 0.6vh;
+    border: 1px solid grey;
+    padding: 1vh;
+    width: 100%;
 }
