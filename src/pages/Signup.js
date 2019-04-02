@@ -48,29 +48,22 @@ class Signup extends Component {
   render() {
     const { username, password, name, phoneNumber } = this.state;
     return (
-      <div className="signup-div-container">
-        <h1>Registro</h1>
-        <form onSubmit={this.handleFormSubmit} className="signup-form">
-          <label>Nombre y apellidos</label>
-          <input className="signup-form-input" type="text" name="name" value={name} onChange={this.handleChange} />
-          <label>Dirección de correo electrónico</label>
-          <input className="signup-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
-          <label>Contraseña</label>
-          <input className="signup-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
-          {/* <label>Repita la contraseña:</label>
-          <input type="password" name="confirmPassword" value={password} onChange={this.handleChange} /> */}
-          <label>Número de teléfono</label>
-          <input className="signup-form-input" type="number" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} />
-          {this.state.error}
-          <p id="signup-p">Already have account?
-          <Link to={"/login"}> Login</Link>
-          </p>
-          <div className="signup-input-submit-container">
-            <i id="login-submit" class="fas fa-sign-in-alt"></i>
-            <input className="login-input-submit" type="submit" value="" />
+      <div className="login-div-container">
+        <div className="auth-box">
+        <div className="login-text-align-center">
+            <img className="signup-position-logo" src="/images/avion.png" alt="logo" />
           </div>
-        </form>
-
+          <form onSubmit={this.handleFormSubmit} className="auth-form">
+            <input className="auth-font-size login-form-input2 login-form-input" type="text" placeholder="NOMBRE Y APELLIDOS" name="name" value={name} onChange={this.handleChange} />
+            <input className="auth-font-size login-form-input2 login-form-input" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" name="username" value={username} onChange={this.handleChange} />
+            <input className="auth-font-size login-form-input2 login-form-input" type="password" placeholder="CONTRASEÑA" name="password" value={password} onChange={this.handleChange} />
+            <input className="auth-font-size login-form-input2 login-form-input" type="number" placeholder="NÚMERO DE TELÉFONO" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} />
+            {this.state.error}
+            <div className="text-align-center">
+              <input className="auth-form-button-submit login-border-none" type="submit" value="REGÍSTRATE" />
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
