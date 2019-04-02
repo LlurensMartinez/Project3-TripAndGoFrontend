@@ -10,13 +10,16 @@
 
 .borderTest {
     border:none;
-    border-bottom: 1px solid #909090;
+    border-bottom: 1px solid #ddd;
     border-radius: 0;
     width: 100%;
   }
 
 .color-grey{
-    color: #404040;
+    color: #979797;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8vh;
+
 }
 
 .font-family-roboto{
@@ -30,7 +33,12 @@
 }
 
 .formcreatetrip-text-area{
-    width: 100%;
+    width: 96%;
+    border-radius: 0.7vh;
+    height: 6vh;
+    padding-top: 1.5vh;
+    padding-left: 1.5vh;
+    border-color: #ddd;
 }
 
 .formcreatetrip-date{
@@ -42,6 +50,7 @@
 .formcreatetrip-flex{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 2.4vh;
 }
 
 .formcreatetrip-text-align-center{
@@ -70,4 +79,16 @@
     border: 1px solid grey;
     padding: 1vh;
     width: 100%;
+}
+
+.formcreate-padding-top{
+    margin-bottom: 3vh;
+}
+
+.formcreate-padding-top2{
+    margin-top: 5vh;
+}
+
+.formcreate-margin{
+    margin-bottom: 3vh;
 }

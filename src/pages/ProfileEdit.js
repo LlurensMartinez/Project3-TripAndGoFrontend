@@ -38,7 +38,6 @@ class ProfileEdit extends Component {
       case false:
         return (
           <div>
-            <h1>Profile Edit</h1>
             <FormEditProfile profile={data} history={this.props.history}/>
           </div>
         );

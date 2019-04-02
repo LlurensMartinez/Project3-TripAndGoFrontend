@@ -6,45 +6,49 @@ import { withAuth } from '../providers/AuthProvider';
 
 class Profile extends Component {
 
-    state = {
-    data:{}
-    
+  state = {
+    data: {}
+
   }
   componentDidMount() {
     const { id } = this.props.match.params
     profileService.getProfile(id)
-    .then(data => {
-      this.setState({
-        data: data
+      .then(data => {
+        this.setState({
+          data: data
+        })
       })
-    })
   }
   render() {
-    const {_id, name, username, phoneNumber,imageURL} = this.state.data;
+    const { _id, name, username, phoneNumber, imageURL } = this.state.data;
     const { logout, user } = this.props;
 
     return (
       <>
         <div className="nav-top">
-          <div>
-          <p onClick={this.props.history.goBack}>
-            <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back"/>
-          </p>
+          <div className="profile-float">
+            <p onClick={this.props.history.goBack}>
+              <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back" />
+            </p>
+            {_id === this.props.user._id && <>  <Link to={`/profile/${user._id}/edit`}>
+              <img src="/images/pencil-edit-button.png" alt="profile-edit" className="size-5vh arrow-back" />
+            </Link> </>}
+          </div>
         </div>
+        <div className="profile-margin-global">
+          <img className="profile-size-image" src={imageURL} alt="" />
+          <h1 className="profile-name-user">{name}</h1>
+          <h3 className="profile-titulos" >DIRECCIÓN DE CORREO ELECTRÓNICO</h3>
+          <h3 className="profile-username">{username}</h3>
+          <div className="profile-margin-top2">
+            <h3 className="profile-titulos">NÚMERO DE TELÉFONO</h3>
+            <h3 className="profile-username">{phoneNumber}</h3>
+          </div>
+          <div className="profile-close-session-div">
+            {_id === this.props.user._id && <> <p onClick={logout}>Cerrar sesión</p> </>
+            }
+          </div>
         </div>
-          <h1>Profile</h1>
-          <img src={imageURL} alt="" width="200px"/ >
-          <h1>{name}</h1>
-          <h3>Dirección de correo electrónico</h3>
-          <h3>{username}</h3>
-          <h3>Número de teléfono</h3>
-          <h3>{phoneNumber}</h3>
-          {_id === this.props.user._id && <>  <Link to={`/profile/${user._id}/edit`}>
-                                                <img src="/images/profile-edit.png" alt="profile-edit" className="size-5vh arrow-back"/>
-                                              </Link>  
-                                            <p onClick={logout}>Logout</p>
-                                          </> 
-          }
       </>
     );
   }

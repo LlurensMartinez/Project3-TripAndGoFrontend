@@ -70,14 +70,14 @@ class FormCreateTrip extends Component {
           </div>
           <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
             <div >
-              <input className="font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} />
+              <input className="formcreate-padding-top2 formcreate-padding-top borderTest font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} />
             </div>
-            <div className="formcreatetrip-margin-top">
+            <div className="formcreatetrip-margin-top formcreate-padding-top">
               <textarea className="font-family-roboto formcreatetrip-text-area" name="description" placeholder="Descripción del viaje" value={description} onChange={this.handleChange}>
               </textarea>
             </div>
-            <div className="formcreatetrip-margin-top">
-              <textarea placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest">
+            <div className="formcreate-padding-top formcreatetrip-margin-top">
+              <textarea placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="formcreatetrip-text-area">
               </textarea>
             </div>
             <div className="formcreatetrip-margin-top formcreatetrip-flex">
@@ -98,7 +98,7 @@ class FormCreateTrip extends Component {
                 </div>
               </div>
             </div>
-            <div className="formcreatetrip-margin-top">
+            <div className="formcreate-margin formcreatetrip-margin-top">
               <label className="color-grey">Rango de edad:</label>
               <select className="formcreatetrip-age-range" value={ageRange} name="ageRange" onChange={this.handleChange}>
                 <option value="18-25" >18-25</option>
@@ -109,7 +109,7 @@ class FormCreateTrip extends Component {
               </select>
             </div>
             <div className="formcreatetrip-margin-top">
-              <input type="number" className="font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} />
+              <input type="number" className="formcreate-margin borderTest font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} />
             </div>
             <FileUploader
                 accept="image/*"

@@ -22,7 +22,9 @@ import './css/Signup.css';
 import './css/Trips.css';
 import './css/TripsNew.css';
 import './css/Home.css';
-import './css/TripDetail.css'; 
+import './css/TripDetail.css';
+import './css/Profile.css'; 
+import './css/ProfileEdit.css'; 
 
 
 

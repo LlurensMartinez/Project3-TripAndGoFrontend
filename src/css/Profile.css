@@ -1,0 +1,61 @@
+.profile-size-image{
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    height: 15vh;
+    width: 15vh;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.profile-margin-global{
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+
+.profile-float{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2vh;
+}
+
+.profile-name-user{
+    font-family: Montserrat;
+    font-size: 26px;
+    font-weight: 800;
+    color: #404040;
+    max-width: 90%;
+    word-wrap: break-word;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+
+.profile-titulos{
+    font-family: 'Montserrat', sans-serif;
+    color: #292828;
+    font-size: 0.8em;
+    margin-bottom: 1.9vh;
+}
+
+.profile-margin-top2{
+    margin-top: 4vh;
+}
+
+.profile-username{
+    border-bottom: 1px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    color: #525050;
+    font-size: 1.7vh;
+    padding-bottom: 0.6vh;
+}
+
+.profile-close-session-div{
+  position: absolute;
+  bottom: 4vh;
+  width: 89%;
+  color: rgb(92, 92, 92);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
