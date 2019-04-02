@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import profileService from '../lib/profile-service'
+import profileService from '../lib/profile-service';
+import { withAuth } from '../providers/AuthProvider';
 
 class TripCard extends Component {
     
@@ -20,7 +21,10 @@ class TripCard extends Component {
         return (
             <div className="tripscard-margin-top">
                 <div>
-                <button onClick={this.handleFav}>Favoritos</button>
+                {data.owner !== this.props.user._id
+                    && <><button onClick={this.handleFav}>Favoritos</button></>
+                }
+                
                     <Link to={`/trips/${data._id}`}>
                         <img className="tripcard-image" src={data.imageURL} alt="trip" />
                     </Link>
@@ -33,4 +37,4 @@ class TripCard extends Component {
     }
 }
 
-export default TripCard;
+export default withAuth(TripCard);
