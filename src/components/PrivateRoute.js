@@ -17,7 +17,4 @@ const PrivateRoute = ({ component: Component, isLogged, ...rest }) => {
     />
   )
 }
-
-
-
 export default withAuth(PrivateRoute);
