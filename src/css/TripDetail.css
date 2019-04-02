@@ -1,7 +1,7 @@
-
-
 .tripdetail-sizeimage {
-  width: 10vh;
-  height: 10vh;
+  width: 8vh;
+  height: 8vh;
   border-radius: 50px;
+  overflow: hidden;
+  object-fit: cover;
 }

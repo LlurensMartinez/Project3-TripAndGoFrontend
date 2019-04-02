@@ -35,6 +35,8 @@
     width: 100%;
     height: 25vh;
     border-radius: 1vh;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .tripscard-margin-top {
