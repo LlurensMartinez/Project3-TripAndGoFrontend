@@ -22,7 +22,7 @@ class TripDetail extends Component {
           data: data,
           isLoading: false
         })
-      this.checkUserIsJoin();
+        this.checkUserIsJoin();
       })
   }
 
@@ -57,7 +57,6 @@ class TripDetail extends Component {
   }
 
 
-
   handleLeave = (e) => {
     e.preventDefault();
     tripService.leaveTrip(this.props.match.params.id)
@@ -72,44 +71,58 @@ class TripDetail extends Component {
   renderProfiles = () => {
     const { participants } = this.state.data;
     return participants.map((profile) => {
-      return <Link to={`/profile/${profile._id}`}><img key={profile._id} src={profile.imageURL} alt="profile" className="tripdetail-sizeimage"/ ></Link>
+      return <Link to={`/profile/${profile._id}`}><img key={profile._id} src={profile.imageURL} alt="profile" className="tripdetail-sizeimage" /></Link>
     })
   }
 
-  
+
   render() {
-    
-    const { data, isLoading, isJoin} = this.state;
-    
+
+    const { data, isLoading, isJoin } = this.state;
+
     switch (isLoading) {
       case true:
         return 'loading...';
       case false:
         return (
           <div>
-            <h1>Trip Detail</h1>
-            <img width="60px" src={data.imageURL} alt="trip" />
-            <div>
-            <Moment format="DD/MM/YYYY">{data.date}</Moment>
+            <img className="tripdetail-image" src={data.imageURL} alt="trip" />
+            <div className="tripdetail-margin-global">
+              <h1 className="tripdetail-title">{data.title}</h1>
+
+              <div className="tripdetail-displayflex">
+                <img className="tripdetail-icons" src="/images/calendar.png" />
+                <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>
+                <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.dateInit}</Moment>
+              </div>
+              <div className="tripdetail-displayflex">
+                <div>
+                  <img className="tripdetail-icons" src="/images/itinerario.png" />
+                </div>
+                <div>
+                  <p className="tripdetail-padding-top">{data.itinerary}</p>
+                </div>
+              </div>
+              <div className="tripdetail-displayflex">
+                <img className="tripdetail-icons" src="/images/usuaris.png" />
+                <p className="tripdetail-padding-top">{data.ageRange} años</p>
+              </div>
+              <div className="tripdetail-padding-users">
+                {this.renderProfiles()}
+                {data.owner === this.props.user._id
+                  && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
+                }
+                {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
+                  ? <><button onClick={this.handleJoin}>Unirse</button> </> : <> </>
+                }
+                {(data.owner !== this.props.user._id && isJoin)
+                  ? <><button onClick={this.handleLeave}>Salir</button> </> : <></>
+                }
+              </div>
+              <div className="tripdetail-barra"></div>
+              <p className="tripedetail-description">Descripción</p>
+              <p className="tripdetail-text-description">{data.description}</p>
             </div>
-            <div>
-            <Moment format="DD/MM/YYYY">{data.dateInit}</Moment>
-            </div>
-            <h1>{data.title}</h1>
-            <p>{data.itinerary}</p>
-            <p>{data.ageRange}</p>
-            <h2>Viajeros</h2>
-            {this.renderProfiles()}
-            {data.owner === this.props.user._id
-              && <><button onClick={this.handleDelete}>Eliminar</button> <Link to={`/trips/${data._id}/edit`}>Editar</Link></>
-            }
-            {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons>data.participants.length))
-              ? <><button onClick={this.handleJoin}>Unirse</button> </> : <> </>
-            }
-            {(data.owner !== this.props.user._id && isJoin)
-              ? <><button onClick={this.handleLeave}>Salir</button> </> : <></>
-            }
-            
             <Navbar />
           </div>
         );
