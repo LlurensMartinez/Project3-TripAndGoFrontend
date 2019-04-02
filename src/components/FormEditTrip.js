@@ -8,6 +8,7 @@ class FormEditTrip extends Component {
     title: this.props.trip.title,
     description: this.props.trip.description,
     itinerary: this.props.trip.itinerary,
+    imageURL: this.props.trip.imageURL
   }
  
 
@@ -41,6 +42,7 @@ class FormEditTrip extends Component {
 
   render() {
     const { title, description, itinerary } = this.state;
+    console.log(this.state);
     
     return (
       <>

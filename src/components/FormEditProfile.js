@@ -10,7 +10,7 @@ class FormEditProfile extends Component {
     password: "",
     newPassword: "",
     phoneNumber: this.props.profile.phoneNumber,
-    imageURL: '',
+    imageURL: this.props.profile.imageURL,
     avatar: '',
     isUploading: false,
     progress: 0,
