@@ -11,17 +11,13 @@ class Login extends Component {
     event.preventDefault();
     const { username, password } = this.state
     this.props.login({ username, password })
-      // .then((data) => {
-      //   if(data.username){
-      //     // this.props.setUser(data)
-      //     console.log(data)
-      //     }
-      //     this.setState({
-      //       error: data.response.data.error
-      //     })
-      //   })
-      .then(() => { })
-      .catch(error => console.log(error))
+      .then((data) => {
+        if(!data.username){
+          this.setState({
+            error: data.response.data.error
+          })
+        }
+      })
   }
 
   handleChange = (event) => {
@@ -41,7 +37,7 @@ class Login extends Component {
             <label className="login-label-email">EMAIL</label>
             <input className="login-form-input2 login-form-input" type="email" name="username" value={username} onChange={this.handleChange} />
             <input placeholder="PASSWORD" className=" login-margin-top login-form-input" type="password" name="password" value={password} onChange={this.handleChange} />
-            {/* {this.state.error} */}
+            {this.state.error}
               <button className="login-form-button-submit login-border-none" type="submit">INICIAR SESIÓN</button>
             <div className="login-dont-have-account">
             <p>¿No tienes una cuenta?</p>
