@@ -5,6 +5,7 @@ import App from './App';
 import firebase from 'firebase';
 import './index.css';
 
+
 firebase.initializeApp({
   apiKey: "AIzaSyCfuQ70DR94cFTl80h620DfyvRW5tCYnMI",
     authDomain: "tripandgofrontend.firebaseapp.com",
