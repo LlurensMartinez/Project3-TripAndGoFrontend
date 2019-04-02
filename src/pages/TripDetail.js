@@ -23,7 +23,17 @@ class TripDetail extends Component {
           isLoading: false
         })
         this.checkUserIsJoin();
+        this.checkIntro();
       })
+  }
+
+  checkIntro = () =>{
+    // Formating comments, to replace \b by <br>
+    let comments = document.querySelectorAll('p');
+    comments.forEach((comment) => {
+        let content = comment.innerHTML.replace(/\n/g, '<br>');
+        comment.innerHTML = content;
+    });
   }
 
   checkUserIsJoin = () => {
@@ -122,7 +132,7 @@ class TripDetail extends Component {
                   <img className="tripdetail-icons" src="/images/itinerario.png" />
                 </div>
                 <div>
-                  <pre className="tripdetail-padding-top">{data.itinerary}</pre>
+                  <p className="tripdetail-padding-top">{data.itinerary}</p>
                 </div>
               </div>
               <div className="tripdetail-displayflex">
@@ -143,7 +153,7 @@ class TripDetail extends Component {
               </div>
               <div className="tripdetail-barra"></div>
               <p className="tripedetail-description">Descripción</p>
-              <pre className="tripdetail-text-description">{data.description}</pre>
+              <p className="tripdetail-text-description">{data.description}</p>
             </div>
             <Navbar />
           </div>
