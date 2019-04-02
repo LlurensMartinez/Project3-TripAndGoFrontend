@@ -119,6 +119,7 @@ class FormCreateTrip extends Component {
               <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
             </footer>
           </form>
+          {this.state.error}
         </div>
       </>
     );
