@@ -20,7 +20,11 @@ class FormEditTrip extends Component {
       .then(() => {
         this.props.history.goBack();
       })
-      .catch(error => console.log(error))
+      .catch((data) => {
+        this.setState({
+          error: data.response.data.error
+        })
+      })
   }
 
   handleChange = (event) => {
@@ -77,6 +81,7 @@ class FormEditTrip extends Component {
              />
           <input type="submit" value="Editar viaje" />
         </form>
+        {this.state.error}
       </>
     );
   }
