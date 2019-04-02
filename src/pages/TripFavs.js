@@ -32,6 +32,7 @@ class TripFavs extends Component {
             <TripCard
               key={singleTrip._id}
               data={singleTrip}
+              getTripFavList = {this.getTripFavList}
             />))}
         </div>
         <Navbar />

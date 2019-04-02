@@ -7,28 +7,80 @@ import 'moment-timezone';
 
 class TripCard extends Component {
 
+    state = {
+        data: [],
+        isFav: false
+    }
+
+    
+    componentDidMount () {
+        this.checkTripIsFav();
+
+    }
     handleFav = (e) => {
         const { data } = this.props;
-        e.preventDefault();
+        // e.preventDefault();
         profileService.joinFav(data._id)
             .then(message => {
+                this.checkTripIsFav();
+                this.setState({
+                    message,
+                })
+            })
+    }
+    handleDeleteFav = (e) => {
+        const { data } = this.props;
+        // e.preventDefault();
+        profileService.deleteFav(data._id)
+            .then(message => {
+                this.checkTripIsFav();
+                this.props.getTripFavList();
                 this.setState({
                     message,
                 })
             })
     }
 
+    checkTripIsFav = async() => {
+        await profileService.getMyTripsFavs()
+            .then(data => {
+                this.setState({
+                data: data.favTrips,
+            })
+        })
+       
+        
+      }
     render() {
         const { data, user } = this.props;
+        const isFav = this.state.data.some(favTrip => favTrip._id === this.props.data._id);
+        let divStyle;
+        
+        if(!isFav){
+            divStyle = {
+                color: 'green',
+              };
+        }
+        else{
+            divStyle = {
+                color: 'red',
+            };
+        }
+         
         return (
             <div className="tripscard-margin-top">
                 <div>
                     <Link to={`/trips/${data._id}`}>
                         <img className="tripcard-image" src={data.imageURL} alt="trip" />
                     </Link>
-                    {data.owner !== user._id
-                        && <><button onClick={this.handleFav}>Favoritos</button></>
-                    }
+                    {/* {data.owner !== user._id
+                        && <><button style={divStyle} onClick={this.handleFav}>Favoritos</button> </> 
+                    }  */}
+                     {data.owner !== user._id
+                        && <><button style={divStyle} onClick={() => { !isFav ? 
+                            this.handleFav() : 
+                            this.handleDeleteFav() }}>Favoritos</button> </> 
+                    } 
                 </div>
                 <p>
                     <Moment diff={data.dateInit} unit="days">{data.date}</Moment> días

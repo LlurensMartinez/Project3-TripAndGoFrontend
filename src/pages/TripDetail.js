@@ -79,7 +79,7 @@ class TripDetail extends Component {
   render() {
 
     const { data, isLoading, isJoin } = this.state;
-
+    
     switch (isLoading) {
       case true:
         return 'loading...';
