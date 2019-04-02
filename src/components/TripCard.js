@@ -17,14 +17,13 @@ class TripCard extends Component {
       }
 
     render() {
-        const { data } = this.props;
+        const { data, user } = this.props;
         return (
             <div className="tripscard-margin-top">
                 <div>
-                {data.owner !== this.props.user._id
-                    && <><button onClick={this.handleFav}>Favoritos</button></>
-                }
-                
+                    {data.owner !== user._id
+                        && <><button onClick={this.handleFav}>Favoritos</button></>
+                    }
                     <Link to={`/trips/${data._id}`}>
                         <img className="tripcard-image" src={data.imageURL} alt="trip" />
                     </Link>
