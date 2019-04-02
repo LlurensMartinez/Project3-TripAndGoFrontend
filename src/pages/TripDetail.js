@@ -89,7 +89,29 @@ class TripDetail extends Component {
             <img className="tripdetail-image" src={data.imageURL} alt="trip" />
             <div className="tripdetail-margin-global">
               <h1 className="tripdetail-title">{data.title}</h1>
-
+              <div class="a">
+                <div class="more">
+                  <button id="more-btn" class="more-btn">
+                    <span class="more-dot"></span>
+                    <span class="more-dot"></span>
+                    <span class="more-dot"></span>
+                  </button>
+                  <div class="more-menu">
+                    <div class="more-menu-caret">
+                      <div class="more-menu-caret-outer"></div>
+                      <div class="more-menu-caret-inner"></div>
+                    </div>
+                    <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+                      <li class="more-menu-item" role="presentation">
+                        <button type="button" class="more-menu-btn" role="menuitem">Editar viaje</button>
+                      </li>
+                      <li class="more-menu-item" role="presentation">
+                        <button type="button" class="more-menu-btn" role="menuitem">Eliminar viaje</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
               <div className="tripdetail-displayflex">
                 <img className="tripdetail-icons" src="/images/calendar.png" />
                 <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>

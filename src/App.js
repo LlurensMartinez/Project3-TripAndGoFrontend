@@ -23,6 +23,7 @@ import './css/Trips.css';
 import './css/TripsNew.css';
 import './css/Home.css';
 import './css/TripDetail.css'; 
+// import './css/main.js';
 
 
 class App extends Component {
