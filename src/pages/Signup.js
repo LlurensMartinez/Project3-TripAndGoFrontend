@@ -9,7 +9,7 @@ class Signup extends Component {
     password: "",
     name: "",
     phoneNumber: "",
-    imageURL: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjw_vDWiK_hAhW_A2MBHZpHAiMQjRx6BAgBEAU&url=https%3A%2F%2Fwww.fotolia.com%2Ftag%2F%2522default%2520profile%2520picture%2522&psig=AOvVaw0-W1GC7yueSSBIzHAXvzIf&ust=1554214047329368"
+    imageURL: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   };
 
   handleFormSubmit = (event) => {
@@ -19,7 +19,7 @@ class Signup extends Component {
     const password = this.state.password;
     const name = this.state.name;
     const phoneNumber = this.state.phoneNumber;
-    const imageURL = this.state.ImageURL;
+    const imageURL = this.state.imageURL;
 
     this.props.signup({ username, password, name, phoneNumber, imageURL })
       .then((data) => {
@@ -29,7 +29,7 @@ class Signup extends Component {
             password: "",
             name: "",
             phoneNumber: "",
-            imageURL: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjw_vDWiK_hAhW_A2MBHZpHAiMQjRx6BAgBEAU&url=https%3A%2F%2Fwww.fotolia.com%2Ftag%2F%2522default%2520profile%2520picture%2522&psig=AOvVaw0-W1GC7yueSSBIzHAXvzIf&ust=1554214047329368"
+            imageURL: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
           });
         }
         this.setState({
