@@ -23,7 +23,7 @@ import './css/Trips.css';
 import './css/TripsNew.css';
 import './css/Home.css';
 import './css/TripDetail.css'; 
-// import './css/main.js';
+
 
 
 class App extends Component {
@@ -45,7 +45,6 @@ class App extends Component {
             <PrivateRoute exact path="/profile/me" component={Profile} />
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <Route component={NoMatch} />
-
           </Switch>
         </div>
       </AuthProvider>
