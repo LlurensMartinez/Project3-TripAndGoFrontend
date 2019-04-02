@@ -28,6 +28,10 @@ class ProfileService {
     return this.profile.put(`/profile/${id}/addfavs`)
       .then(({ data }) => data);
   }
+  deleteFav(id) {
+    return this.profile.put(`/profile/${id}/deletefavs`)
+      .then(({ data }) => data);
+  }
   getMyTripsFavs(){
     return this.profile.get('/profile/favoritos')
       .then(({ data }) => data);

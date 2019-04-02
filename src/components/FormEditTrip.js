@@ -44,17 +44,6 @@ class FormEditTrip extends Component {
     firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
   };
 
-  onTestChange = () => {
-    let key = window.event.keyCode;
-    // If the user has pressed enter
-    if (key === 13) {
-        document.getElementById("txtArea").value = document.getElementById("txtArea").value + "\n*";
-        return false;
-    }
-    else {
-        return true;
-    }
-}
 
   render() {
     const { title, description, itinerary } = this.state; 
