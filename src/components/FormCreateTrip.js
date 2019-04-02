@@ -15,7 +15,7 @@ class FormCreateTrip extends Component {
     dateInit: "",
     ageRange: "18-25",
     numberPersons: "",
-    imageURL: 'http://tifositours.com/wp-content/uploads/2019/02/Barcelona.jpg',
+    imageURL: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
     avatar: '',
     isUploading: false,
     progress: 0,
@@ -24,6 +24,7 @@ class FormCreateTrip extends Component {
   // Entra aqui al presionar crear viaje en el formulario
   handleFormSubmit = (event) => {
     event.preventDefault();
+    
     const { title, description,itinerary,date, dateInit, ageRange, numberPersons,imageURL } = this.state;
     // se envian los datos introducidos a tripService
     tripService.create({ title, description, itinerary, date, dateInit, ageRange, numberPersons,imageURL })
@@ -31,7 +32,11 @@ class FormCreateTrip extends Component {
         // una vez enviado los datos vamos a la pagina donde se mostraran los detalles del viaje creado
         this.props.history.push(`/trips/${data._id}`);
       })
-      .catch(error => console.log(error))
+      .catch((data) => {
+        this.setState({
+          error: data.response.data.error
+        })
+      })
   }
 
   //funcion que registra todo lo que intriducimos en los campos input y lo introduce el el campo que corresponda del state
