@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
+// Clase para crear con un formulario un viaje
 class FormCreateTrip extends Component {
   state = {
     title: "",
@@ -19,23 +20,26 @@ class FormCreateTrip extends Component {
     progress: 0,
   }
 
+  // Entra aqui al presionar crear viaje en el formulario
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { title, description,itinerary,date, dateInit, ageRange, numberPersons,imageURL } = this.state;
-    
+    // se envian los datos introducidos a tripService
     tripService.create({ title, description, itinerary, date, dateInit, ageRange, numberPersons,imageURL })
       .then((data) => {
+        // una vez enviado los datos vamos a la pagina donde se mostraran los detalles del viaje creado
         this.props.history.push(`/trips/${data._id}`);
       })
       .catch(error => console.log(error))
   }
 
+  //funcion que registra todo lo que intriducimos en los campos input y lo introduce el el campo que corresponda del state
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-
+  //----------------------Funciones para enviar los datos a firebase-------------------
   handleChangeUsername = (event) => this.setState({username: event.target.value});
   handleUploadStart = () => this.setState({isUploading: true, progress: 0});
   handleProgress = (progress) => this.setState({progress});
@@ -47,6 +51,8 @@ class FormCreateTrip extends Component {
     this.setState({avatar: filename, progress: 100, isUploading: false});
     firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({imageURL: url}));
   };
+//------------------------Funciones para enviar los datos a firebase--------------------
+
 
   render() {
     const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = this.state;

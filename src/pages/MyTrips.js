@@ -15,8 +15,6 @@ class MyTrips extends Component {
     this.getTripJoinList();
   }
 
-
-
   getTripCreateList = async () => {
     await tripService.getMyTrips()
       .then(data => {
