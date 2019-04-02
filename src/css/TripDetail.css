@@ -25,10 +25,13 @@
   font-size: 26px;
   font-weight: 800;
   color: #404040;
+  max-width:90%;
+  word-wrap: break-word;
 }
 
 .tripdetail-displayflex{
   display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -42,6 +45,12 @@
   font-family: Roboto;
   font-weight: 500;
   color: #404040;
+  max-width: 40%;
+  word-wrap: break-word;
+  overflow: scroll;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tripdetail-barra{
@@ -65,6 +74,8 @@
   font-family: Roboto;
   font-weight: 400;
   padding-top: 1vh;
+  max-width:90%;
+  word-wrap: break-word;
 }
 
 .tripdetail-button-never-effect{
