@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 import tripService from '../lib/trip-services';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class TripDetail extends Component {
 
@@ -87,8 +89,12 @@ class TripDetail extends Component {
           <div>
             <h1>Trip Detail</h1>
             <img width="60px" src={data.imageURL} alt="trip" />
-            <p>{data.date}</p>
-            <p>{data.dateInit}</p>
+            <div>
+            <Moment format="DD/MM/YYYY">{data.date}</Moment>
+            </div>
+            <div>
+            <Moment format="DD/MM/YYYY">{data.dateInit}</Moment>
+            </div>
             <h1>{data.title}</h1>
             <p>{data.itinerary}</p>
             <p>{data.ageRange}</p>

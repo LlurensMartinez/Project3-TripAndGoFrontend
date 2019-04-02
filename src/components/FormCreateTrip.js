@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
+
 // Clase para crear con un formulario un viaje
 class FormCreateTrip extends Component {
   state = {
