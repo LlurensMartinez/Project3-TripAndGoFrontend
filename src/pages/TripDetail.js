@@ -29,7 +29,17 @@ class TripDetail extends Component {
           isLoading: false
         })
         this.checkUserIsJoin();
+        this.checkIntro();
       })
+  }
+
+  checkIntro = () =>{
+    // Formating comments, to replace \b by <br>
+    let comments = document.querySelectorAll('p');
+    comments.forEach((comment) => {
+        let content = comment.innerHTML.replace(/\n/g, '<br>');
+        comment.innerHTML = content;
+    });
   }
 
   checkUserIsJoin = () => {
@@ -113,7 +123,10 @@ class TripDetail extends Component {
                   <img className="tripdetail-icons" src="/images/itinerario.png" />
                 </div>
                 <div>
-                  <p>{data.itinerary}</p>
+                  <p className="tripdetail-padding-top">{data.itinerary}</p>
+
+                  {/* <p>{data.itinerary}</p> */}
+
                 </div>
               </div>
               <div className="tripdetail-displayflex">

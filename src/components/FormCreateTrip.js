@@ -77,7 +77,8 @@ class FormCreateTrip extends Component {
               </textarea>
             </div>
             <div className="formcreatetrip-margin-top">
-              <input type="text" placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest" />
+              <textarea placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="borderTest">
+              </textarea>
             </div>
             <div className="formcreatetrip-margin-top formcreatetrip-flex">
               <div>
