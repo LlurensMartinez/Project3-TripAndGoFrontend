@@ -65,9 +65,6 @@ class TripCard extends Component {
         return (
             <div className="tripscard-margin-top">
                 <div>
-                    {/* {data.owner !== user._id
-                        && <><button style={divStyle} onClick={this.handleFav}>Favoritos</button> </> 
-                    }  */}
                     <div className="tripcard-caption">
                         <div className="text-align-right">
                             {data.owner !== user._id

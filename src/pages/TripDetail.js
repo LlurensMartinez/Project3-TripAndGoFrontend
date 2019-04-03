@@ -18,12 +18,6 @@ class TripDetail extends Component {
   componentDidMount() {
     tripService.getOne(this.props.match.params.id)
       .then(data => {
-        // Formating comments, to replace \b by <br>
-        let comments = document.querySelectorAll('.comment-text p');
-        comments.forEach((comment) => {
-          let content = comment.innerHTML.replace(/\n/g, '<br>');
-          comment.innerHTML = content;
-        });
         this.setState({
           data: data,
           isLoading: false

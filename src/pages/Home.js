@@ -5,7 +5,6 @@ import { withAuth } from '../providers/AuthProvider';
 class Home extends Component {
   render() {
     const { isLogged } = this.props;
-    // const { username } = user;
     if (isLogged) {
       return <div>
 
