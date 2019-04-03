@@ -64,7 +64,7 @@ class FormEditTrip extends Component {
             <p>Progress: Uploading...</p>
             }
             {this.state.imageURL &&
-            <img src={this.state.imageURL} className="tripcard-image" alt="trip"/>
+            <img src={this.state.imageURL} className="tripcard-image2" alt="trip"/>
             }<div className="margin-x-formedittrip">
               <FileUploader
                 accept="image/*"

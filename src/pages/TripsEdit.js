@@ -37,8 +37,10 @@ class TripsEdit extends Component {
       case false:
         
         return (
+          <div className="image-background-formcreate">
           <div>
             <FormEditTrip trip={data} history={this.props.history}/>
+          </div>
           </div>
         );
       default:
