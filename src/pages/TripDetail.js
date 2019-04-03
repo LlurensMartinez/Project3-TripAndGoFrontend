@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
+import CommentCard from '../components/CommentCard';
 import tripService from '../lib/trip-services';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
@@ -140,6 +141,13 @@ class TripDetail extends Component {
               <div className="tripdetail-barra"></div>
               <p className="tripedetail-description">Descripción</p>
               <p className="tripdetail-text-description">{data.description}</p>
+              {/* {data.map(singleTrip => ( */}
+            <CommentCard
+              // key={singleTrip._id}
+               trip={data}
+              // getTripFavList = {this.getTripFavList}
+            />
+            {/* ))} */}
             </div>
             <Navbar />
           </div>

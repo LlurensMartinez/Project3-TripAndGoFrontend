@@ -8,17 +8,19 @@ class CommentService {
     })
   }
 
-  create(data) {
-    const { text, creator, trip } = data;
-    return this.trip.post('/', { text, creator, trip })
+  create(id,data) {
+   
+    const { text } = data;
+    console.log(id)
+    return this.comment.post(`/comment`, { id,text })
       .then(({ data }) => data);
   }
 
   // Llama a la Api para recoger todos los viajes
-  getAll() {
-    return this.trip.get('/trip')
-      .then(({ data }) => data);
-  }
+  // getAll() {
+  //   return this.trip.get('/trip')
+  //     .then(({ data }) => data);
+  // }
 }
 
 const commentService = new CommentService();

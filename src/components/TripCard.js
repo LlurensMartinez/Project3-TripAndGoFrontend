@@ -72,7 +72,7 @@ class TripCard extends Component {
                                     !isFav ?
                                         this.handleFav() :
                                         this.handleDeleteFav()
-                                }}><img src={imgURL} className="tripcard-style-fav " /></button> </>
+                                }}><img src={imgURL} className="tripcard-style-fav " alt="icon-fav"/></button> </>
                             }
                         </div>
                         <p className="tripcard-date-days">
