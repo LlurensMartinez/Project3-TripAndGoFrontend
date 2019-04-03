@@ -34,7 +34,9 @@ class TripCard extends Component {
         profileService.deleteFav(data._id)
             .then(message => {
                 this.checkTripIsFav();
-                this.props.getTripFavList();
+                if(this.props.getTripFavList){
+                    this.props.getTripFavList();
+                }
                 this.setState({
                     message,
                 })
@@ -48,9 +50,7 @@ class TripCard extends Component {
                 data: data.favTrips,
             })
         })
-       
-        
-      }
+    }
     render() {
         const { data, user } = this.props;
         const isFav = this.state.data.some(favTrip => favTrip._id === this.props.data._id);
