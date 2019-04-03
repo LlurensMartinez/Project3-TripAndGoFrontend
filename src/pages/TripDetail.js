@@ -137,7 +137,7 @@ class TripDetail extends Component {
                 </div>
               </div>
               <div className="tripdetail-displayflex">
-                <img className="tripdetail-icons" src="/images/usuaris.png" />
+                <img className="tripdetail-icons" src="/images/usuaris.png" alt="icon-trip"/>
                 <p className="tripdetail-padding-top">{data.ageRange} años</p>
               </div>
               <div className="tripdetail-padding-users">
