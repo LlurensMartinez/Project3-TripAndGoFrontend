@@ -38,7 +38,6 @@ class TripsEdit extends Component {
         
         return (
           <div>
-            <h1>TripsEdit</h1>
             <FormEditTrip trip={data} history={this.props.history}/>
           </div>
         );

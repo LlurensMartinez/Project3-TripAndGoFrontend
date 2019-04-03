@@ -63,8 +63,10 @@
     padding:10px;
     width: 15vh;
     border: none;
-    box-shadow: 0 0 7px #ddd;
+    box-shadow: 0 0 7px #ffb035;
+    background-color: #fffcf77c;
     color: #404040;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .formcreatetrip-footer{
@@ -91,4 +93,12 @@
 
 .formcreate-margin{
     margin-bottom: 3vh;
+}
+
+.formedittrip-margin-top-global{
+    margin-top: 2vh;
+}
+
+.formedittrip-margin-bottom{
+    margin-bottom: 4vh;
 }
