@@ -24,7 +24,7 @@
 }
 
 .color-black{
-  color: #404040;
+  color: #ddd;
 }
 
 .nav-top{
@@ -40,5 +40,6 @@
 }
 
 .text-size{
-  font-size: 1.8vh;
+  font-size: 1.6vh;
+  color: rgb(112, 112, 112);
 }

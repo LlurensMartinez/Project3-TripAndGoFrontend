@@ -45,6 +45,7 @@ class Trips extends Component {
       <>
         <div className="trips-margin-div-global">
           <div>
+            <img className="trips-search" src="/images/search.png" alt=""/>
             <input className="tripcard-style-toolbar" onChange={this.handleChange}>
             </input>
           </div>

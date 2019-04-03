@@ -45,7 +45,7 @@
 }
 
 .tripcard-title {
-    font-size: 2.9vh;
+    font-size: 2.4vh;
     margin-top: 0.9vh;
     overflow: hidden;
 }
@@ -57,8 +57,12 @@
     overflow: hidden;
 }
 
+.tripcard-style-fav {
+    width: 30px;
+}
+
 .tripcard-style-toolbar {
-    width: 328px;
+    width: 97%;
     height: 40px;
     opacity: 0.8;
     border-radius: 3px;
@@ -68,4 +72,17 @@
     margin-top: 2vh;
     font-size: 14px;
     padding-left: 1.5vh;
+}
+
+.trips-search{
+    width: 3vh;
+    position: absolute;
+    z-index: 1;
+    margin-top: 3vh;
+    margin-left: 1vh;
+}
+
+.mytrips-border{
+    border-bottom: 1.2px solid rgb(204, 203, 203);
+    padding-bottom: 1vh;
 }
