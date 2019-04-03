@@ -57,6 +57,10 @@
     overflow: hidden;
 }
 
+.tripcard-style-fav {
+    width: 30px;
+}
+
 .tripcard-style-toolbar {
     width: 328px;
     height: 40px;

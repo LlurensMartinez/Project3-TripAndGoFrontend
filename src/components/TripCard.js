@@ -12,8 +12,8 @@ class TripCard extends Component {
         isFav: false
     }
 
-    
-    componentDidMount () {
+
+    componentDidMount() {
         this.checkTripIsFav();
 
     }
@@ -34,7 +34,7 @@ class TripCard extends Component {
         profileService.deleteFav(data._id)
             .then(message => {
                 this.checkTripIsFav();
-                if(this.props.getTripFavList){
+                if (this.props.getTripFavList) {
                     this.props.getTripFavList();
                 }
                 this.setState({
@@ -43,30 +43,25 @@ class TripCard extends Component {
             })
     }
 
-    checkTripIsFav = async() => {
+    checkTripIsFav = async () => {
         await profileService.getMyTripsFavs()
             .then(data => {
                 this.setState({
-                data: data.favTrips,
+                    data: data.favTrips,
+                })
             })
-        })
     }
     render() {
         const { data, user } = this.props;
         const isFav = this.state.data.some(favTrip => favTrip._id === this.props.data._id);
-        let divStyle;
-        
-        if(!isFav){
-            divStyle = {
-                color: 'green',
-              };
+        let imgURL;
+        if (!isFav) {
+           imgURL = "./images/like.png"
         }
-        else{
-            divStyle = {
-                color: 'red',
-            };
+        else {
+            imgURL = "./images/isfav.png"
         }
-         
+
         return (
             <div className="tripscard-margin-top">
                 <div>
@@ -76,11 +71,13 @@ class TripCard extends Component {
                     {/* {data.owner !== user._id
                         && <><button style={divStyle} onClick={this.handleFav}>Favoritos</button> </> 
                     }  */}
-                     {data.owner !== user._id
-                        && <><button style={divStyle} onClick={() => { !isFav ? 
-                            this.handleFav() : 
-                            this.handleDeleteFav() }}>Favoritos</button> </> 
-                    } 
+                    {data.owner !== user._id
+                        && <><button onClick={() => {
+                            !isFav ?
+                            this.handleFav() :
+                            this.handleDeleteFav()
+                        }}><img src={imgURL} className="tripcard-style-fav " /></button> </>
+                    }
                 </div>
                 <p>
                     <Moment diff={data.dateInit} unit="days">{data.date}</Moment> días
