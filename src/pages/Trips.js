@@ -51,7 +51,7 @@ class Trips extends Component {
       &&
       e.ageRange.includes(this.state.filterAge) 
       &&
-      e.dateInit.includes(this.state.filterDate)
+      e.dateInit >= this.state.filterDate
       );
     return (
       <>

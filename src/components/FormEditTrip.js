@@ -71,6 +71,7 @@ class FormEditTrip extends Component {
             </div>
             <div>
               <FileUploader
+                hidden
                 accept="image/*"
                 name="avatar"
                 randomizeFilename
