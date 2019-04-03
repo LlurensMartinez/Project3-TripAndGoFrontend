@@ -130,9 +130,6 @@ class TripDetail extends Component {
                 </div>
                 <div>
                   <p className="tripdetail-padding-top">{data.itinerary}</p>
-
-                  {/* <p>{data.itinerary}</p> */}
-
                 </div>
               </div>
               <div className="tripdetail-displayflex">
