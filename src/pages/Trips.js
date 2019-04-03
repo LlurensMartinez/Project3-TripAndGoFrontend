@@ -62,7 +62,7 @@ class Trips extends Component {
             </input>
           </div>
           <div className="trips-height-filter display-float">
-            <div className="formcreate-margin formcreatetrip-margin-top">
+            <div className="formcreatetrip-margin-top">
               <select className="trip-padding-age trips-style" value={this.state.filterAge} name="ageRange" onChange={this.handleChangeAge}>
                 <option value="">Edad</option>
                 <option value="18-25" >18-25</option>
