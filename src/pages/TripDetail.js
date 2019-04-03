@@ -101,7 +101,7 @@ class TripDetail extends Component {
         return 'loading...';
       case false:
         return (
-          <div>
+          <div className="margin-bottom-trip-detail">
             {data.owner === this.props.user._id
               && <div className="text-align-right"><button className="tripdetail-button-never-effect" onClick={this.handleDelete}><img className="tripdetail-size-image-delete" src="/images/delete.png" /></button></div>
             }
@@ -136,10 +136,10 @@ class TripDetail extends Component {
               <div className="tripdetail-padding-users">
                 {this.renderProfiles()}
                 {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
-                  ? <><button onClick={this.handleJoin}>Unirse</button> </> : <> </>
+                  ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png"/></button> </> : <> </>
                 }
                 {(data.owner !== this.props.user._id && isJoin)
-                  ? <><button onClick={this.handleLeave}>Salir</button> </> : <></>
+                  ? <><button className="trip-detail-button" onClick={this.handleLeave}><img className="trip-detail-image" src="/images/remove-user.png"/></button> </> : <></>
                 }
               </div>
               <div className="tripdetail-barra"></div>

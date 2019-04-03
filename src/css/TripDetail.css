@@ -96,3 +96,16 @@
 .tripdetail-size-image-edit{
   width: 4vh;
 }
+
+.margin-bottom-trip-detail{
+  padding-bottom: 10vh;
+}
+
+.trip-detail-button{
+  background-color: transparent;
+  border: none;
+}
+
+.trip-detail-image{
+width: 4vh;
+}
