@@ -71,7 +71,7 @@
     border: none;
     margin-top: 2vh;
     font-size: 14px;
-    padding-left: 1.5vh;
+    padding-left: 5vh;
 }
 
 .trips-search{
@@ -85,4 +85,31 @@
 .mytrips-border{
     border-bottom: 1.2px solid rgb(204, 203, 203);
     padding-bottom: 1vh;
+}
+
+.tripcard-button-heart{
+    background: transparent;
+    border:none;
+    z-index: 1;
+    margin-top: 1vh;
+    margin-left: 0.5vh;
+}
+
+.tripcard-date-days{
+    color:white;
+    margin-left: 1.3vh;
+    font-size: 2vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tripcard-caption{
+    position: absolute;
+    height: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mytrips-padding-top-global{
+    padding-top: 2.5vh;
 }
