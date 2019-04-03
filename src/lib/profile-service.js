@@ -9,8 +9,8 @@ class ProfileService {
   }
   // Llama a la Api para editar los datos del usuario
   edit(data) {
-    const { name, username, password, newPassword, phoneNumber, imageURL } = data;
-    return this.profile.put(`/profile/edit`, { name, username, password, newPassword, phoneNumber, imageURL })
+    const { name, username, password, newPassword, phoneNumber, imageURL, description } = data;
+    return this.profile.put(`/profile/edit`, { name, username, password, newPassword, phoneNumber, imageURL, description })
       .then(({ data }) => data);
   }
   // Llama a la Api para recoger los datos del usuario
