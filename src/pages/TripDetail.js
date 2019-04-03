@@ -108,7 +108,7 @@ class TripDetail extends Component {
               <div className="tripdetail-float">
                 <h1 className="tripdetail-title">{data.title}</h1>
                 {data.owner === this.props.user._id
-                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png" alt="icon" /></Link>
+                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/edit.png" alt="icon" /></Link>
                 }
                 {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
                   ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png" alt="icon"/></button> </> : <> </>

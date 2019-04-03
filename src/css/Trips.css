@@ -13,6 +13,12 @@
     margin-bottom: 19%;
 }
 
+.trips-margin-div-global2 {
+    margin-right: 3.5vh;
+    margin-left: 3.5vh;
+    margin-bottom: 5%;
+}
+
 .mytrips-margin-top-global {
     margin-top: 3vh;
 }
@@ -26,10 +32,6 @@
     font-family: 'Montserrat', sans-serif;
     color: #444444;
     font-weight: 800;
-}
-
-.trips-div-title-margin {
-    margin-top: 1vh;
 }
 
 .tripcard-image {
@@ -143,4 +145,13 @@
 
 .margin-global-trip-create{
     margin-bottom: 20vh;
+}
+
+.margin-formedittrip{
+    margin-top: 2vh;
+    margin-bottom: 2.5vh;
+}
+
+.margin-x-formedittrip{
+    margin-top: 2.5vh;
 }

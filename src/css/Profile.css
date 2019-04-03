@@ -13,6 +13,7 @@
 .profile-margin-global{
     margin-left: 3vh;
     margin-right: 3vh;
+    margin-top: 6vh;
 }
 
 .profile-float{
@@ -75,6 +76,13 @@
 }
 .image-background-formcreate2{
     background-image: url("/images/fondo-2.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.image-background-formcreate3{
+    background-image: url("/images/perfil-naranja.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;

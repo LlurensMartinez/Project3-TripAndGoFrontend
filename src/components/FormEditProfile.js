@@ -54,7 +54,7 @@ class FormEditProfile extends Component {
     return (
       <>
         <p onClick={this.props.history.goBack}>
-          <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back" />
+          <img src="/images/flecha.png" alt="arrow-left" className="size-5vh arrow-back" />
         </p>
         <div className="profile-margin-global">
       {this.state.isUploading &&

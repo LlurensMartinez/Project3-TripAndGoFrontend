@@ -37,7 +37,7 @@ class ProfileEdit extends Component {
         return 'loading...';
       case false:
         return (
-          <div>
+          <div className="image-background-formcreate3">
             <FormEditProfile profile={data} history={this.props.history}/>
           </div>
         );
