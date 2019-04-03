@@ -9,6 +9,7 @@ class Trips extends Component {
   state = {
     data: [],
     search:''
+
   }
 
   componentDidMount() {
@@ -40,7 +41,8 @@ class Trips extends Component {
   
   render() {
     const { data } = this.state;
-    const filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));
+    let filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));
+    filteredList = data.filter(e=> e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase()));
     return (
       <>
         <div className="trips-margin-div-global">
@@ -50,7 +52,15 @@ class Trips extends Component {
             </input>
           </div>
           <div className="trips-height-filter">
-            <p>Filtros</p>
+          <div className="formcreate-margin formcreatetrip-margin-top">
+              <select className="formcreatetrip-age-range" value="" name="ageRange" onChange={this.handleChange}>
+                <option value="18-25" >18-25</option>
+                <option value="25-30">25-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="+50">+50</option>
+              </select>
+            </div>
           </div>
           <div className="trips-div-title-margin">
             <p className="trips-title font-family-montserrat">Viajes más populares</p>

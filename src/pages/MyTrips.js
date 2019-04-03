@@ -27,8 +27,12 @@ class MyTrips extends Component {
   getTripJoinList = async () => {
     await tripService.getMyTripsJoin()
       .then(data => {
+        const data2 = data.filter(trip => {
+          return trip.owner !== this.props.user._id
+        }
+        )
         this.setState({
-          dataJoin: data
+          dataJoin: data2,
         })
       })
   }
@@ -44,8 +48,8 @@ class MyTrips extends Component {
               key={singleTrip._id}
               data={singleTrip}
             />))}
-        <h1 className="mytrips-border trips-title font-family-montserrat">Viajes confirmados</h1>
-        {dataJoin.map(singleTrip => (
+          <h1 className="mytrips-border trips-title font-family-montserrat">Viajes confirmados</h1>
+          {dataJoin.map(singleTrip => (
             <TripCard
               key={singleTrip._id}
               data={singleTrip}
