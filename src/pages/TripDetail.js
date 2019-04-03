@@ -112,6 +112,12 @@ class TripDetail extends Component {
                 {data.owner === this.props.user._id
                   && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png" /></Link>
                 }
+                {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
+                  ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png"/></button> </> : <> </>
+                }
+                {(data.owner !== this.props.user._id && isJoin)
+                  ? <><button className="trip-detail-button" onClick={this.handleLeave}><img className="trip-detail-image" src="/images/remove-user.png"/></button> </> : <></>
+                }
               </div>
               <div className="tripdetail-displayflex">
                 <img className="tripdetail-icons" src="/images/calendar.png" />
@@ -135,12 +141,6 @@ class TripDetail extends Component {
               </div>
               <div className="tripdetail-padding-users">
                 {this.renderProfiles()}
-                {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
-                  ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png"/></button> </> : <> </>
-                }
-                {(data.owner !== this.props.user._id && isJoin)
-                  ? <><button className="trip-detail-button" onClick={this.handleLeave}><img className="trip-detail-image" src="/images/remove-user.png"/></button> </> : <></>
-                }
               </div>
               <div className="tripdetail-barra"></div>
               <p className="tripedetail-description">Descripción</p>
