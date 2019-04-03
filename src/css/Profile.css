@@ -6,11 +6,14 @@
     width: 15vh;
     overflow: hidden;
     object-fit: cover;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
 }
 
 .profile-margin-global{
     margin-left: 3vh;
     margin-right: 3vh;
+    margin-top: 6vh;
 }
 
 .profile-float{
@@ -59,4 +62,28 @@
   padding-top: 2vh;
   padding-bottom: 2vh;
   margin-top: 10vh;
+}
+
+.image-form{
+    margin-bottom: 2vh;
+}
+
+.image-background-formcreate{
+    background-image: url("/images/fotos.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+.image-background-formcreate2{
+    background-image: url("/images/fondo-2.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.image-background-formcreate3{
+    background-image: url("/images/perfil-naranja.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
 }

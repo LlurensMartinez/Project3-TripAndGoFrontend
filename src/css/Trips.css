@@ -13,12 +13,19 @@
     margin-bottom: 19%;
 }
 
+.trips-margin-div-global2 {
+    margin-right: 3.5vh;
+    margin-left: 3.5vh;
+    margin-bottom: 5%;
+}
+
 .mytrips-margin-top-global {
     margin-top: 3vh;
 }
 
 .trips-title {
     font-size: 3.5vh;
+    margin-top: 2vh;
 }
 
 .font-family-montserrat {
@@ -27,16 +34,21 @@
     font-weight: 800;
 }
 
-.trips-div-title-margin {
-    margin-top: 1vh;
-}
-
 .tripcard-image {
     width: 100%;
     height: 25vh;
     border-radius: 1vh;
     overflow: hidden;
     object-fit: cover;
+}
+
+.tripcard-image2 {
+    width: 100%;
+    height: 25vh;
+    border-radius: 1vh;
+    overflow: hidden;
+    object-fit: cover;
+    margin-top: 12vh;
 }
 
 .tripscard-margin-top {
@@ -80,6 +92,10 @@
     z-index: 1;
     margin-top: 3vh;
     margin-left: 1vh;
+}
+
+.formcreatetrip-margin-top-2{
+    margin-top:10vh;
 }
 
 .mytrips-border{
@@ -138,4 +154,13 @@
 
 .margin-global-trip-create{
     margin-bottom: 20vh;
+}
+
+.margin-formedittrip{
+    margin-top: 2vh;
+    margin-bottom: 2.5vh;
+}
+
+.margin-x-formedittrip{
+    margin-top: 2.5vh;
 }

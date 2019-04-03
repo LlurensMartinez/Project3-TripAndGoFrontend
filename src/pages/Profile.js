@@ -37,6 +37,7 @@ class Profile extends Component {
 
     return (
       <>
+      <div className="image-background-formcreate3">
         <div className="nav-top">
           <div className="profile-float">
             <p onClick={this.props.history.goBack}>
@@ -65,6 +66,7 @@ class Profile extends Component {
             }
           </div>
         </div>
+      </div>
         <Navbar />
       </>
     );

@@ -26,6 +26,7 @@ class TripFavs extends Component {
     const { data } = this.state;
     return (
       <>
+      <div className="image-background-formcreate2">
         <div className="trips-margin-div-global mytrips-padding-top-global">
         <h1 className="trips-title font-family-montserrat">Favorites</h1>
         {data.map(singleTrip => (
@@ -35,6 +36,7 @@ class TripFavs extends Component {
               getTripFavList = {this.getTripFavList}
             />))}
         </div>
+      </div>
         <Navbar />
       </>
     )

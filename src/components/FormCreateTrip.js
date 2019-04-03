@@ -64,11 +64,12 @@ class FormCreateTrip extends Component {
     const { title, description, itinerary, date, dateInit, ageRange, numberPersons } = this.state;
     return (
       <>
+      
         <div className="trips-margin-div-global">
           <div>
             <h1 className="trips-title font-family-montserrat">¡Crea tu propio viaje!</h1>
           </div>
-          <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
+          <form className="formcreatetrip-margin-top-2" onSubmit={this.handleFormSubmit}>
             <div >
               <input className="formcreate-padding-top2 formcreate-padding-top borderTest font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} />
             </div>

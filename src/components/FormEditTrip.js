@@ -55,10 +55,29 @@ class FormEditTrip extends Component {
         <p onClick={this.props.history.goBack}>
           <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back" />
         </p>
-        <div className="formedittrip-margin-top-global trips-margin-div-global">
+        <div className="formedittrip-margin-top-global trips-margin-div-global2">
           <div>
-            <h1 className="formedittrip-margin-bottom trips-title font-family-montserrat">Editar viaje</h1>
+            <h1 className="trips-title font-family-montserrat">Editar viaje</h1>
           </div>
+            <div className="margin-formedittrip">  
+            {this.state.isUploading &&
+            <p>Progress: Uploading...</p>
+            }
+            {this.state.imageURL &&
+            <img src={this.state.imageURL} className="tripcard-image2" alt="trip"/>
+            }<div className="margin-x-formedittrip">
+              <FileUploader
+                accept="image/*"
+                name="avatar"
+                randomizeFilename
+                storageRef={firebase.storage().ref('/fotos')}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+              />
+            </div>
+            </div>
           <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
             <div>
               <label className="profile-titulos">Título</label>
@@ -72,25 +91,7 @@ class FormEditTrip extends Component {
               <label className="profile-titulos">Itinerario</label>
               <textarea className="formcreatetrip-text-area" type="text" rows="10" cols="50" name="itinerary" value={itinerary} onChange={this.handleChange} />
             </div>
-            <div>  
-            {this.state.isUploading &&
-            <p>Progress: Uploading...</p>
-            }
-            {this.state.imageURL &&
-            <img src={this.state.imageURL} className="tripdetail-image" alt="trip"/>
-            }
-              <FileUploader
-                accept="image/*"
-                name="avatar"
-                randomizeFilename
-                storageRef={firebase.storage().ref('/fotos')}
-                onUploadStart={this.handleUploadStart}
-                onUploadError={this.handleUploadError}
-                onUploadSuccess={this.handleUploadSuccess}
-                onProgress={this.handleProgress}
-              />
-            </div>
-            <div>
+            <div className="text-align-center">
               <input className="formcreatetrip-button" type="submit" value="Editar viaje" />
             </div>
           </form>
