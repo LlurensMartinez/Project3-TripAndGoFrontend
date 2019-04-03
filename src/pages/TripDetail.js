@@ -101,30 +101,30 @@ class TripDetail extends Component {
         return (
           <div className="margin-bottom-trip-detail">
             {data.owner === this.props.user._id
-              && <div className="text-align-right"><button className="tripdetail-button-never-effect" onClick={this.handleDelete}><img className="tripdetail-size-image-delete" src="/images/delete.png" /></button></div>
+              && <div className="text-align-right"><button className="tripdetail-button-never-effect" onClick={this.handleDelete}><img className="tripdetail-size-image-delete" src="/images/delete.png" alt="icon-delete"/></button></div>
             }
             <img className="tripdetail-image" src={data.imageURL} alt="trip" />
             <div className="tripdetail-margin-global">
               <div className="tripdetail-float">
                 <h1 className="tripdetail-title">{data.title}</h1>
                 {data.owner === this.props.user._id
-                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png" /></Link>
+                  && <Link to={`/trips/${data._id}/edit`}><img className="tripdetail-size-image-edit" src="/images/pencil-edit-button.png" alt="icon" /></Link>
                 }
                 {(data.owner !== this.props.user._id && !isJoin && (data.numberPersons > data.participants.length))
-                  ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png"/></button> </> : <> </>
+                  ? <><button className="trip-detail-button" onClick={this.handleJoin}><img className="trip-detail-image" src="/images/add-user.png" alt="icon"/></button> </> : <> </>
                 }
                 {(data.owner !== this.props.user._id && isJoin)
-                  ? <><button className="trip-detail-button" onClick={this.handleLeave}><img className="trip-detail-image" src="/images/remove-user.png"/></button> </> : <></>
+                  ? <><button className="trip-detail-button" onClick={this.handleLeave}><img className="trip-detail-image" src="/images/remove-user.png" alt="icon"/></button> </> : <></>
                 }
               </div>
               <div className="tripdetail-displayflex">
-                <img className="tripdetail-icons" src="/images/calendar.png" />
+                <img className="tripdetail-icons" src="/images/calendar.png" alt="icon" />
                 <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>
                 <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.dateInit}</Moment>
               </div>
               <div className="tripdetail-displayflex">
                 <div>
-                  <img className="tripdetail-icons" src="/images/itinerario.png" />
+                  <img className="tripdetail-icons" src="/images/itinerario.png" alt="icon"/>
                 </div>
                 <div>
                   <p className="tripdetail-padding-top">{data.itinerary}</p>

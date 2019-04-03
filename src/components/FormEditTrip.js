@@ -8,7 +8,10 @@ class FormEditTrip extends Component {
     title: this.props.trip.title,
     description: this.props.trip.description,
     itinerary: this.props.trip.itinerary,
-    imageURL: this.props.trip.imageURL
+    imageURL: this.props.trip.imageURL,
+    avatar: '',
+    isUploading: false,
+    progress: 0,
   }
 
 
@@ -69,9 +72,14 @@ class FormEditTrip extends Component {
               <label className="profile-titulos">Itinerario</label>
               <textarea className="formcreatetrip-text-area" type="text" rows="10" cols="50" name="itinerary" value={itinerary} onChange={this.handleChange} />
             </div>
-            <div>
+            <div>  
+            {this.state.isUploading &&
+            <p>Progress: Uploading...</p>
+            }
+            {this.state.imageURL &&
+            <img src={this.state.imageURL} className="tripdetail-image" alt="trip"/>
+            }
               <FileUploader
-                hidden
                 accept="image/*"
                 name="avatar"
                 randomizeFilename
@@ -86,6 +94,7 @@ class FormEditTrip extends Component {
               <input className="formcreatetrip-button" type="submit" value="Editar viaje" />
             </div>
           </form>
+        
           {this.state.error}
         </div>
       </>

@@ -87,6 +87,12 @@ class FormEditProfile extends Component {
 
             <div className="text-align-center">
               <div>
+              {this.state.isUploading &&
+               <p>Progress: Uploading...</p>
+              }
+              {this.state.imageURL &&
+                <img src={this.state.imageURL} className="tripdetail-image" alt="trip"/>
+              }
                 <FileUploader
                   accept="image/*"
                   name="avatar"
