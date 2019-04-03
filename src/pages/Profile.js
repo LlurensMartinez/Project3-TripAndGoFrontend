@@ -17,10 +17,21 @@ class Profile extends Component {
         this.setState({
           data: data
         })
+        this.checkIntro();
       })
   }
+
+  checkIntro = () =>{
+    // Formating comments, to replace \b by <br>
+    let comments = document.querySelectorAll('p');
+    comments.forEach((comment) => {
+        let content = comment.innerHTML.replace(/\n/g, '<br>');
+        comment.innerHTML = content;
+    });
+  }
+
   render() {
-    const { _id, name, username, phoneNumber, imageURL } = this.state.data;
+    const { _id, name, username, phoneNumber, imageURL, description } = this.state.data;
     const { logout, user } = this.props;
 
     return (
@@ -43,6 +54,10 @@ class Profile extends Component {
           <div className="profile-margin-top2">
             <h3 className="profile-titulos">NÚMERO DE TELÉFONO</h3>
             <h3 className="profile-username">{phoneNumber}</h3>
+          </div>
+          <div className="profile-margin-top2">
+            <h3 className="profile-titulos">DESCRIPCION</h3>
+            <p className="profile-username">{description}</p>
           </div>
           <div className="profile-close-session-div">
             {_id === this.props.user._id && <> <p onClick={logout}>Cerrar sesión</p> </>

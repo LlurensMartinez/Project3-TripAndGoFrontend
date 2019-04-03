@@ -10,6 +10,7 @@ class FormEditProfile extends Component {
     password: "",
     newPassword: "",
     phoneNumber: this.props.profile.phoneNumber,
+    description: this.props.profile.description,
     imageURL: this.props.profile.imageURL,
     avatar: '',
     isUploading: false,
@@ -19,16 +20,8 @@ class FormEditProfile extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const name = this.state.name;
-    const username = this.state.username;
-    const password = this.state.password;
-    const newPassword = this.state.newPassword;
-    const phoneNumber = this.state.phoneNumber;
-    const imageURL = this.state.imageURL;
-
-
-
-    profileService.edit({ name, username, password, phoneNumber, newPassword, imageURL })
+    const {name, username, password, newPassword, phoneNumber, imageURL, description} = this.state
+    profileService.edit({ name, username, password, phoneNumber, newPassword, imageURL, description })
       .then(() => {
         this.props.history.goBack();
       })
@@ -57,7 +50,7 @@ class FormEditProfile extends Component {
   };
 
   render() {
-    const { name, username, password, newPassword, phoneNumber } = this.state;
+    const { name, username, password, newPassword, phoneNumber, description } = this.state;
     return (
       <>
         <p onClick={this.props.history.goBack}>
@@ -86,6 +79,12 @@ class FormEditProfile extends Component {
               <label className="profile-titulos">Número de teléfono</label>
               <input type="text" name="phoneNumber" value={phoneNumber} onChange={this.handleChange} className="profile-username borderTest" />
             </div>
+
+            <div className="formeditprofile-margin-bottom">
+              <label className="profile-titulos">Descripción</label>
+              <textarea type="text" name="description" value={description} onChange={this.handleChange} className="profile-username borderTest" />
+            </div>
+
             <div className="text-align-center">
               <div>
                 <FileUploader
