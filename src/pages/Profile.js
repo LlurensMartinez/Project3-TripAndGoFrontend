@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import profileService from '../lib/profile-service';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
+import Navbar from '../components/Navbar';
 
 class Profile extends Component {
 
@@ -39,7 +40,7 @@ class Profile extends Component {
         <div className="nav-top">
           <div className="profile-float">
             <p onClick={this.props.history.goBack}>
-              <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back" />
+              <img src="/images/flecha.png" alt="arrow-left" className="size-5vh arrow-back" />
             </p>
             {_id === this.props.user._id && <>  <Link to={`/profile/${user._id}/edit`}>
               <img src="/images/pencil-edit-button.png" alt="profile-edit" className="size-5vh arrow-back" />
@@ -64,6 +65,7 @@ class Profile extends Component {
             }
           </div>
         </div>
+        <Navbar />
       </>
     );
   }

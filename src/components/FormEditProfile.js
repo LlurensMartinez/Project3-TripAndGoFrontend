@@ -99,7 +99,7 @@ class FormEditProfile extends Component {
                 />
               </div>
               <div>
-                <input type="submit" value="Guardar" />
+                <input className="formcreatetrip-button" type="submit" value="Guardar" />
               </div>
             </div>
           </form>

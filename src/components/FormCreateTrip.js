@@ -77,7 +77,7 @@ class FormCreateTrip extends Component {
               </textarea>
             </div>
             <div className="formcreate-padding-top formcreatetrip-margin-top">
-              <textarea placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="formcreatetrip-text-area">
+              <textarea placeholder="Itinerario" name="itinerary" value={itinerary} onChange={this.handleChange} className="font-family-roboto formcreatetrip-text-area">
               </textarea>
             </div>
             <div className="formcreatetrip-margin-top formcreatetrip-flex">
@@ -121,7 +121,7 @@ class FormCreateTrip extends Component {
                 onUploadSuccess={this.handleUploadSuccess}
                 onProgress={this.handleProgress}
              />
-            <footer className="formcreatetrip-footer formcreatetrip-text-align-center">
+            <footer className="formcreatetrip-text-align-center">
               <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
             </footer>
           </form>

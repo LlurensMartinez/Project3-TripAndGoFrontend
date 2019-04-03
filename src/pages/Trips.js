@@ -10,7 +10,7 @@ class Trips extends Component {
     data: [],
     search: '',
     filterAge: '',
-    filterDate:''
+    filterDate: ''
   }
 
   componentDidMount() {
@@ -46,13 +46,13 @@ class Trips extends Component {
 
   render() {
     const { data } = this.state;
-    
+
     let filteredList = data.filter(e => e.title.toLowerCase().includes(this.state.search.toLocaleLowerCase())
       &&
-      e.ageRange.includes(this.state.filterAge) 
+      e.ageRange.includes(this.state.filterAge)
       &&
       e.dateInit >= this.state.filterDate
-      );
+    );
     return (
       <>
         <div className="trips-margin-div-global">
@@ -61,9 +61,9 @@ class Trips extends Component {
             <input className="tripcard-style-toolbar" onChange={this.handleChange}>
             </input>
           </div>
-          <div className="trips-height-filter">
+          <div className="trips-height-filter display-float">
             <div className="formcreate-margin formcreatetrip-margin-top">
-              <select className="formcreatetrip-age-range" value={this.state.filterAge} name="ageRange" onChange={this.handleChangeAge}>
+              <select className="trip-padding-age trips-style" value={this.state.filterAge} name="ageRange" onChange={this.handleChangeAge}>
                 <option value="">Edad</option>
                 <option value="18-25" >18-25</option>
                 <option value="25-30">25-30</option>
@@ -72,7 +72,9 @@ class Trips extends Component {
                 <option value="+50">+50</option>
               </select>
             </div>
-            <input type="date" name="dateInit" value={this.state.filterDate} onChange={this.handleChangeDataInit} className="formcreatetrip-date" />
+            <div className="trips-margin-left">
+              <input type="date" name="dateInit" value={this.state.filterDate} onChange={this.handleChangeDataInit} className="trips-style" />
+            </div>
           </div>
           <div className="trips-div-title-margin">
             <p className="trips-title font-family-montserrat">Viajes más populares</p>

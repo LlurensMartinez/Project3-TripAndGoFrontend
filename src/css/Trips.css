@@ -4,8 +4,7 @@
 }
 
 .trips-height-filter {
-    height: 6vh;
-    border: 1px solid rgb(238, 47, 47);
+    margin-top: 2vh;
 }
 
 .trips-margin-div-global {
@@ -25,10 +24,11 @@
 .font-family-montserrat {
     font-family: 'Montserrat', sans-serif;
     color: #444444;
+    font-weight: 800;
 }
 
 .trips-div-title-margin {
-    margin-top: 3vh;
+    margin-top: 1vh;
 }
 
 .tripcard-image {
@@ -58,7 +58,7 @@
 }
 
 .tripcard-style-fav {
-    width: 30px;
+    width: 21px;
 }
 
 .tripcard-style-toolbar {
@@ -112,4 +112,30 @@
 
 .mytrips-padding-top-global{
     padding-top: 2.5vh;
+}
+
+.display-float{
+    display: flex;
+}
+
+.trips-margin-left{
+    margin-left: 2vh;
+}
+
+.trips-style{
+    border: none;
+    border-radius: 0.5vh;
+    padding: 0.6vh;
+    border: 1px solid #ddd;
+    background-color: transparent;
+    color: #444;
+
+}
+
+.trip-padding-age{
+    padding-bottom: 1vh;
+}
+
+.margin-global-trip-create{
+    margin-bottom: 20vh;
 }

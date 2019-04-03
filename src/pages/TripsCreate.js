@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import FormCreateTrip from '../components/FormCreateTrip'
-
+import Navbar from '../components/Navbar';
 
 class TripsCreate extends Component {
   render() {
     return (
-      <>
+      <div className="margin-global-trip-create">
         <div className="nav-top">
-        <div>
-        <p onClick={this.props.history.goBack}>
-          <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back"/>
-        </p>
+          <div>
+          </div>
         </div>
+        <FormCreateTrip history={this.props} />
+        <Navbar />
       </div>
-        <FormCreateTrip history={this.props}/>
-      </>
     );
   }
 }

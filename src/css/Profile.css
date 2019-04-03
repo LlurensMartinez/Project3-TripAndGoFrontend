@@ -50,12 +50,13 @@
 }
 
 .profile-close-session-div{
-  position: absolute;
-  bottom: 4vh;
+  bottom: 12vh;
+  position: fixed;
   width: 89%;
   color: rgb(92, 92, 92);
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding-top: 2vh;
   padding-bottom: 2vh;
+  margin-top: 10vh;
 }
