@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
 
 class Signup extends Component {
@@ -15,11 +14,7 @@ class Signup extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const username = this.state.username;
-    const password = this.state.password;
-    const name = this.state.name;
-    const phoneNumber = this.state.phoneNumber;
-    const imageURL = this.state.imageURL;
+    const {username, password, name, phoneNumber, imageURL} = this.state
 
     this.props.signup({ username, password, name, phoneNumber, imageURL })
       .then((data) => {
