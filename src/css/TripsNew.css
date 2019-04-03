@@ -67,7 +67,20 @@
     background-color: #fffcf77c;
     color: #404040;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 7vh;
+    margin-top: 4vh;
+}
+
+.formcreatetrip-button2{
+    border-radius: 5vh;
+    background: none;
+    padding:10px;
+    width: 15vh;
+    border: none;
+    border: 1px solid #ffb035;
+    background-color: #fffcf77c;
+    color: #404040;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 3vh;
 }
 
 .formcreatetrip-footer{

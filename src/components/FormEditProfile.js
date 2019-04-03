@@ -48,7 +48,7 @@ class FormEditProfile extends Component {
     this.setState({ avatar: filename, progress: 100, isUploading: false });
     firebase.storage().ref('/fotos').child(filename).getDownloadURL().then(url => this.setState({ imageURL: url }));
   };
-
+  
   render() {
     const { name, username, password, newPassword, phoneNumber, description } = this.state;
     return (
@@ -56,7 +56,25 @@ class FormEditProfile extends Component {
         <p onClick={this.props.history.goBack}>
           <img src="/images/right-arrow.png" alt="arrow-left" className="size-5vh arrow-back" />
         </p>
-        <div className="profile-margin-global formedit-margin-global">
+        <div className="profile-margin-global">
+      {this.state.isUploading &&
+       <p>Progress: Uploading...</p>
+      }
+      {this.state.imageURL &&
+        <img src={this.state.imageURL} className="profile-size-image" alt="trip"/>
+      }
+              <div className="image-form">
+                <FileUploader
+                  accept="image/*"
+                  name="avatar"
+                  randomizeFilename
+                  storageRef={firebase.storage().ref('/fotos')}
+                  onUploadStart={this.handleUploadStart}
+                  onUploadError={this.handleUploadError}
+                  onUploadSuccess={this.handleUploadSuccess}
+                  onProgress={this.handleProgress}
+                />
+              </div>
           <form onSubmit={this.handleFormSubmit}>
             <div className="formeditprofile-margin-bottom">
               <label className="profile-titulos">Nombre y apellidos</label>
@@ -87,25 +105,7 @@ class FormEditProfile extends Component {
 
             <div className="text-align-center">
               <div>
-              {this.state.isUploading &&
-               <p>Progress: Uploading...</p>
-              }
-              {this.state.imageURL &&
-                <img src={this.state.imageURL} className="tripdetail-image" alt="trip"/>
-              }
-                <FileUploader
-                  accept="image/*"
-                  name="avatar"
-                  randomizeFilename
-                  storageRef={firebase.storage().ref('/fotos')}
-                  onUploadStart={this.handleUploadStart}
-                  onUploadError={this.handleUploadError}
-                  onUploadSuccess={this.handleUploadSuccess}
-                  onProgress={this.handleProgress}
-                />
-              </div>
-              <div>
-                <input className="formcreatetrip-button" type="submit" value="Guardar" />
+                <input className="formcreatetrip-button2" type="submit" value="Guardar" />
               </div>
             </div>
           </form>

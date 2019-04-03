@@ -6,13 +6,15 @@ import Navbar from '../components/Navbar';
 class TripsCreate extends Component {
   render() {
     return (
-      <div className="margin-global-trip-create">
+      <div className="image-background-formcreate">
+      <div>
         <div className="nav-top">
           <div>
           </div>
         </div>
         <FormCreateTrip history={this.props} />
         <Navbar />
+      </div>
       </div>
     );
   }
