@@ -12,7 +12,7 @@ class TripCard extends Component {
         isFav: false
     }
 
-
+    //Componentdidmount
     componentDidMount() {
         this.checkTripIsFav();
 
