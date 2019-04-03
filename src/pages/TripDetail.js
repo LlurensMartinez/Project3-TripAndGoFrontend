@@ -65,10 +65,13 @@ class TripDetail extends Component {
     e.preventDefault();
     tripService.joinTrip(this.props.match.params.id)
       .then(message => {
+        
         this.setState({
           message,
+          
         })
-        this.props.history.push(`/mytrips`);
+        this.componentDidMount();
+        // this.props.history.push(`/mytrips`);
       })
   }
 
@@ -80,7 +83,8 @@ class TripDetail extends Component {
         this.setState({
           message,
         })
-        this.props.history.push(`/trips`);
+        this.componentDidMount();
+        // this.props.history.push(`/trips`);
       })
   }
 
