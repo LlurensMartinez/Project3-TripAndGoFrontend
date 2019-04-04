@@ -1,61 +1,63 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import commentService from '../lib/comment-service';
+import profileService from '../lib/profile-service';
 import { withAuth } from '../providers/AuthProvider';
-
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 class CommentCard extends Component {
 
     state = {
-        text: ""
-        
+        data: [],
+        isFav: false
     }
 
     //Componentdidmount
     componentDidMount() {
-    
+        
 
     }
-
-    // Entra aqui al presionar crear viaje en el formulario
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    
-    const { text } = this.state;
-    
-    // se envian los datos introducidos a tripService
-    commentService.create(this.props.trip._id, { text })
-      .then((data) => {
-       
-      })
-      .catch((data) => {
-        this.setState({
-          error: data.response.data.error
-        })
-      })
-    }
-
-     //funcion que registra todo lo que intriducimos en los campos input y lo introduce el el campo que corresponda del state
-    handleChange = (event) => {
-     const { name, value } = event.target;
-        this.setState({ [name]: value });
-    }
+   
 
     render() {
-        const { data, user } = this.props;
-        const { text } = this.state;
+        // const { data, user } = this.props;
+        // const isFav = this.state.data.some(favTrip => favTrip._id === this.props.data._id);
+        // let imgURL;
+        // if (!isFav) {
+        //     imgURL = "./images/like2.png"
+        // }
+        // else {
+        //     imgURL = "./images/isfav.png"
+        // }
 
         return (
             <div className="tripscard-margin-top">
-                <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
-            <div className="formcreate-padding-top formcreatetrip-margin-top">
-              <textarea placeholder="comentario" name="text" value={text} onChange={this.handleChange} className="font-family-roboto formcreatetrip-text-area">
-              </textarea>
-            </div>
-            <footer className="formcreatetrip-text-align-center">
-              <input className="formcreatetrip-button" type="submit" value="Comentar" />
-            </footer>
-          </form>
+                <p>{this.props.data.creator.name}</p>
+                <p>{this.props.data.text}</p>
+                
+                {/* <div>
+                    <div className="tripcard-caption">
+                        <div className="text-align-right">
+                            {data.owner !== user._id
+                                && <><button className="tripcard-button-heart" onClick={() => {
+                                    !isFav ?
+                                        this.handleFav() :
+                                        this.handleDeleteFav()
+                                }}><img src={imgURL} className="tripcard-style-fav " alt="icon-fav"/></button> </>
+                            }
+                        </div>
+                        <p className="tripcard-date-days">
+                            <Moment diff={data.dateInit} unit="days">{data.date}</Moment> días
+                    </p>
+                    </div>
+
+                    <Link to={`/trips/${data._id}`}>
+                        <img className="tripcard-image" src={data.imageURL} alt="trip" />
+                    </Link>
+                </div>
+                <h1 className="font-family-montserrat tripcard-title">{data.title}</h1>
+                <p className="tripcard-style-p">Itinerario: {data.itinerary}</p>
+                <p className="tripcard-style-p">Edad: {data.ageRange} años</p> */}
             </div>
         );
     }

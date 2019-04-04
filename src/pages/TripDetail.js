@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
+import FormComment from '../components/FormComment';
 import CommentCard from '../components/CommentCard';
 import tripService from '../lib/trip-services';
+import commentService from '../lib/comment-service';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
 import Moment from 'react-moment';
@@ -14,6 +16,7 @@ class TripDetail extends Component {
     message: "",
     isLoading: true,
     isJoin: false,
+    dataComments: [],
   }
 
   componentDidMount() {
@@ -25,9 +28,18 @@ class TripDetail extends Component {
         })
         this.checkUserIsJoin();
         this.checkIntro();
+        this.getCommentsList();
       })
   }
 
+  getCommentsList = async () => {
+    await commentService.getCommentsTrip(this.state.data._id)
+      .then(data => {
+        this.setState({
+          dataComments: data
+        })
+      })
+  }
   checkIntro = () =>{
     // Formating comments, to replace \b by <br>
     let comments = document.querySelectorAll('p');
@@ -66,7 +78,6 @@ class TripDetail extends Component {
           
         })
         this.componentDidMount();
-        // this.props.history.push(`/mytrips`);
       })
   }
 
@@ -79,7 +90,6 @@ class TripDetail extends Component {
           message,
         })
         this.componentDidMount();
-        // this.props.history.push(`/trips`);
       })
   }
 
@@ -93,7 +103,7 @@ class TripDetail extends Component {
 
   render() {
 
-    const { data, isLoading, isJoin } = this.state;
+    const { data, isLoading, isJoin, dataComments } = this.state;
     
     switch (isLoading) {
       case true:
@@ -142,12 +152,17 @@ class TripDetail extends Component {
               <p className="tripedetail-description">Descripción</p>
               <p className="tripdetail-text-description">{data.description}</p>
               {/* {data.map(singleTrip => ( */}
-            <CommentCard
+            <FormComment
               // key={singleTrip._id}
                trip={data}
-              // getTripFavList = {this.getTripFavList}
+               getCommentsList = {this.getCommentsList}
             />
             {/* ))} */}
+            {dataComments.map(singleComment => (
+            <CommentCard
+              key={singleComment._id}
+              data={singleComment}
+            />))}
             </div>
             <Navbar />
           </div>
