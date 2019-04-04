@@ -21,7 +21,7 @@ class TripFavs extends Component {
         })
       })
   }
-
+  
   render() {
     const { data } = this.state;
     return (

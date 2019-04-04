@@ -96,8 +96,8 @@ class TripCard extends Component {
                     </Link>
                 </div>
                 <h1 className="font-family-montserrat tripcard-title">{data.title}</h1>
-                <p className="tripcard-style-p">Itinerario: {data.itinerary}</p>
-                <p className="tripcard-style-p">Edad: {data.ageRange} años</p>
+                <p className="tripcard-style-p"><span className="span-bol">Itinerario:</span> {data.itinerary}</p>
+                <p className="tripcard-style-p"><span className="span-bol">Edad:</span> {data.ageRange} años</p>
             </div>
         );
     }
