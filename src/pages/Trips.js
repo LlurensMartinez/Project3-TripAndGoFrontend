@@ -17,6 +17,7 @@ class Trips extends Component {
     this.getTripList();
   }
 
+  
   getTripList = async () => {
     await tripService.getAll()
       .then(data => {

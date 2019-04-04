@@ -15,8 +15,19 @@ class TripCard extends Component {
     //Componentdidmount
     componentDidMount() {
         this.checkTripIsFav();
-
+        this.checkIntro();
     }
+
+    checkIntro = () =>{
+        // Formating comments, to replace \b by <br>
+        let comments = document.querySelectorAll('p');
+        comments.forEach((comment) => {
+            let content = comment.innerHTML.replace(/\n/g, '<br>');
+            comment.innerHTML = content;
+        });
+      }
+    
+
     handleFav = (e) => {
         const { data } = this.props;
         // e.preventDefault();
