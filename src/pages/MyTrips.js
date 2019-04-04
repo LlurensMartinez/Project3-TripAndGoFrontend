@@ -42,13 +42,13 @@ class MyTrips extends Component {
     return (
       <>
         <div className="trips-margin-div-global mytrips-margin-top-global">
-          <h1 className="mytrips-border trips-title font-family-montserrat">Mis viajes</h1>
+          <h1 className="trips-title font-family-montserrat">Mis viajes</h1>
           {data.map(singleTrip => (
             <TripCard
               key={singleTrip._id}
               data={singleTrip}
             />))}
-          <h1 className="mytrips-border trips-title font-family-montserrat">Viajes confirmados</h1>
+          <h1 className="trips-title font-family-montserrat">Viajes confirmados</h1>
           {dataJoin.map(singleTrip => (
             <TripCard
               key={singleTrip._id}
