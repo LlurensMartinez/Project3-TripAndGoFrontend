@@ -112,6 +112,12 @@ class FormCreateTrip extends Component {
             <div className="formcreatetrip-margin-top">
               <input type="number" className="formcreate-margin borderTest font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} />
             </div>
+            {this.state.isUploading &&
+            <p>Progress: Uploading...</p>
+            }
+            {this.state.imageURL &&
+            <img src={this.state.imageURL} className="tripcard-image2" alt="trip"/>
+            }
             <FileUploader
                 accept="image/*"
                 name="avatar"

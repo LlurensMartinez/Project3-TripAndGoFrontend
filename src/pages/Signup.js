@@ -8,7 +8,7 @@ class Signup extends Component {
     password: "",
     name: "",
     phoneNumber: "",
-    imageURL: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+    imageURL: "/images/profile-default.png"
   };
 
   handleFormSubmit = (event) => {
@@ -24,7 +24,7 @@ class Signup extends Component {
             password: "",
             name: "",
             phoneNumber: "",
-            imageURL: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            imageURL: "/images/profile-default.png"
           });
         }
         this.setState({
