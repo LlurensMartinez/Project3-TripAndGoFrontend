@@ -9,10 +9,13 @@ class CommentService {
   }
 
   create(id,data) {
-   
     const { text } = data;
-    console.log(id)
     return this.comment.post(`/comment`, { id,text })
+      .then(({ data }) => data);
+  }
+
+  getCommentsTrip(id) {
+   return this.comment.get(`/comment/${id}/tripcomments`)
       .then(({ data }) => data);
   }
 
