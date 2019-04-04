@@ -69,7 +69,23 @@ class FormCreateTrip extends Component {
           <div>
             <h1 className="trips-title font-family-montserrat">¡Crea tu propio viaje!</h1>
           </div>
-          <form className="formcreatetrip-margin-top-2" onSubmit={this.handleFormSubmit}>
+            {this.state.isUploading &&
+            <p>Progress: Uploading...</p>
+            }
+            {this.state.imageURL &&
+            <img src={this.state.imageURL} className="tripcard-image2" alt="trip"/>
+            }
+            <FileUploader
+                accept="image/*"
+                name="avatar"
+                randomizeFilename
+                storageRef={firebase.storage().ref('/fotos')}
+                onUploadStart={this.handleUploadStart}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+             />
+          <form onSubmit={this.handleFormSubmit}>
             <div >
               <input className="formcreate-padding-top2 formcreate-padding-top borderTest font-family-roboto" type="text" placeholder="Introduce el título de tu viaje" name="title" value={title} onChange={this.handleChange} />
             </div>
@@ -112,22 +128,6 @@ class FormCreateTrip extends Component {
             <div className="formcreatetrip-margin-top">
               <input type="number" className="formcreate-margin borderTest font-family-roboto" placeholder="Número máximo de personas" name="numberPersons" value={numberPersons} onChange={this.handleChange} />
             </div>
-            {this.state.isUploading &&
-            <p>Progress: Uploading...</p>
-            }
-            {this.state.imageURL &&
-            <img src={this.state.imageURL} className="tripcard-image2" alt="trip"/>
-            }
-            <FileUploader
-                accept="image/*"
-                name="avatar"
-                randomizeFilename
-                storageRef={firebase.storage().ref('/fotos')}
-                onUploadStart={this.handleUploadStart}
-                onUploadError={this.handleUploadError}
-                onUploadSuccess={this.handleUploadSuccess}
-                onProgress={this.handleProgress}
-             />
             <footer className="formcreatetrip-text-align-center">
               <input className="formcreatetrip-button" type="submit" value="Crear viaje" />
             </footer>

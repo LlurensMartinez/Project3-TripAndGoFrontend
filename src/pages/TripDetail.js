@@ -130,8 +130,8 @@ class TripDetail extends Component {
               </div>
               <div className="tripdetail-displayflex">
                 <img className="tripdetail-icons" src="/images/calendar.png" alt="icon" />
-                <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>
                 <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.dateInit}</Moment>
+                <Moment className="tripdetail-padding-top" format="DD/MM/YYYY">{data.date}</Moment>
               </div>
               <div className="tripdetail-displayflex">
                 <div>
