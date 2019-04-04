@@ -9,7 +9,7 @@ class CommentCard extends Component {
     render() {
         return (
             <div className="comment-card-text">
-                <p className>{this.props.data.creator.name}: </p>
+                <p className="blac-comment">{this.props.data.creator.name}: </p>
                 <p>{this.props.data.text}</p>
             </div>
         );

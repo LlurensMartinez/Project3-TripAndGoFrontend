@@ -49,6 +49,11 @@
   padding-right: 2vh;
 }
 
+.blac-comment{
+  font-weight: bold;
+  padding-bottom: 0.5vh;
+}
+
 .comment-card-text{
   margin-bottom: 2vh;
   border: none;
