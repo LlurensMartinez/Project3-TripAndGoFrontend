@@ -28,7 +28,7 @@ class TripFavs extends Component {
       <>
       <div className="image-background-formcreate4">
         <div className="trips-margin-div-global mytrips-padding-top-global">
-        <h1 className="trips-title font-family-montserrat">Favorites</h1>
+        <h1 className="trips-title font-family-montserrat">Favoritos</h1>
         {data.map(singleTrip => (
             <TripCard
               key={singleTrip._id}

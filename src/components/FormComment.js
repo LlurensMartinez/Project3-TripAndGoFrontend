@@ -46,14 +46,14 @@ class CommentCard extends Component {
         const { text } = this.state;
 
         return (
-            <div className="tripscard-margin-top">
+            <div className="tripscard-margin-top23">
                 <form className="formcreatetrip-margin-top" onSubmit={this.handleFormSubmit}>
             <div className="formcreate-padding-top formcreatetrip-margin-top">
               <textarea placeholder="comentario" name="text" value={text} onChange={this.handleChange} className="font-family-roboto formcreatetrip-text-area">
               </textarea>
             </div>
             <footer className="formcreatetrip-text-align-center">
-              <input className="formcreatetrip-button" type="submit" value="Comentar" />
+              <input className="formcreatetrip-button23" type="submit" value="Enviar" />
             </footer>
           </form>
             </div>

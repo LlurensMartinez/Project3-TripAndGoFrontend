@@ -151,18 +151,19 @@ class TripDetail extends Component {
               <div className="tripdetail-barra"></div>
               <p className="tripedetail-description">Descripción</p>
               <p className="tripdetail-text-description">{data.description}</p>
-              {/* {data.map(singleTrip => ( */}
+              <div className="tripdetail-barra"></div>
+              <p className="tripedetail-description">Comentarios</p>
+              <div className="tripdetail-comments-box">
+              {dataComments.map(singleComment => (
+              <CommentCard
+                key={singleComment._id}
+                data={singleComment}
+              />))}
+              </div>
             <FormComment
-              // key={singleTrip._id}
                trip={data}
                getCommentsList = {this.getCommentsList}
             />
-            {/* ))} */}
-            {dataComments.map(singleComment => (
-            <CommentCard
-              key={singleComment._id}
-              data={singleComment}
-            />))}
             </div>
             <Navbar />
           </div>
